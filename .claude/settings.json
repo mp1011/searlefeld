@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(git commit*)",
+      "Bash(git push*)",
+      "PowerShell(git commit*)",
+      "PowerShell(git push*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "bash",
+            "command": "bin=\"${WORK_DOT_BAT_BIN:-work_dot_bat}\"; if ! command -v \"$bin\" >/dev/null 2>&1; then echo \"work_dot_bat binary not found: put it on PATH or set WORK_DOT_BAT_BIN.\" >&2; exit 2; fi; exec \"$bin\" safety-hook"
+          }
+        ]
+      }
+    ]
+  }
+}
