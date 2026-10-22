@@ -42,6 +42,7 @@ Start every session by reading **only**:
 | Assess whether a plan is really done | `agent_docs/instructions/high_trust/assess-done.md` |
 | Project health review | `agent_docs/instructions/high_trust/project-health-assessment.md` |
 | Where is a file / what does it do? | `agent_docs/02_project_structure.md` |
+| Website architecture & tech stack | `agent_docs/deep_dives/website_tech_stack.md` |
 
 <!-- TODO(agent): add a row for each guide in agent_docs/ (architecture, testing, CI/CD, domain notes) as they are written. -->
 
