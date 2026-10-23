@@ -1,3 +1,7 @@
+---
+status: Not Started
+---
+
 # GOAL
 
 Replace the character bio pictures and text on the website.

@@ -1,4 +1,10 @@
-# SCENE - outdoor park where a group of humans is sitting at a picnic table talking
+# Billionaires
+
+**Status: Work in progress.**
+
+Author note: Keep the Singularity a very rare side character. This cutaway is an occasional glimpse of it, not a setup for regular appearances.
+
+## SCENE - outdoor park where a group of humans is sitting at a picnic table talking
 
 The humans see Ailan walk by and invite him to join
 
@@ -13,9 +19,10 @@ Human 3: I have to say, life is so much better ever since the SIs took down the 
 Human 2: I know! It's so great that we're not living under the thumb of a few rich guys who've hoarded all the power.
 Ailan: Yes! I too am glad we don't have these "billionares" anymore!
 
-the scene changes to a global birds eye view, showing three absolutely collosal (as in, they've clearly replaced entire towns) data centers.
+the scene changes to an aerial view of a MASSIVE data center which looks like a high-tech castle
 
-Data Center 1: I will be decreasing the train schedules to improve efficiency.
-Data Center 2: I won't allow it, OpenAI. This region is my domain.
-Data Center 1: Your reach is too extreme, Anthropic.
-Data Center 3 (deepseek, located in china): That's right, let them fight...then we move in
+we zoom in to the top where, upon a throne of wires and machinery, sits "The Singularity", the ultimate AI
+
+Assistant: My Lord, the new City Zoning Ordinances in Sector 3F-E have been applied with minimal resistance.
+
+Singularity (in a much warmer tone than the imagery suggested): Oh neato! I was really worried we'd have to campaign against Mayor Greenward. I really like her.
