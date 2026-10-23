@@ -1,0 +1,8 @@
+{
+  "name": "searlefeld-tooling",
+  "private": true,
+  "description": "Root-level dev dependencies so scripts/work_dot_bat/typescript checks can resolve typescript.",
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}

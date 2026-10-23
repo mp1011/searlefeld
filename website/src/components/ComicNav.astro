@@ -1,0 +1,52 @@
+---
+import { navTargets } from '../lib/comics';
+interface Props { numbers: number[]; current: number }
+const { numbers, current } = Astro.props;
+const t = navTargets(numbers, current);
+const others = numbers.filter((n) => n !== current);
+const randomFallback = others.length ? others[0] : current;
+const buttons = [
+  { key: 'first', label: '|<<', name: 'First comic', target: t.first },
+  { key: 'prev', label: '<', name: 'Previous comic', target: t.prev },
+  { key: 'next', label: '>', name: 'Next comic', target: t.next },
+  { key: 'latest', label: '>>|', name: 'Latest comic', target: t.latest },
+];
+---
+<nav class="comic-nav" aria-label="Comic navigation" data-numbers={JSON.stringify(numbers)} data-current={current}>
+  {buttons.slice(0, 2).map((b) => b.target === null
+    ? <span class="disabled" aria-disabled="true" aria-label={b.name}>{b.label}</span>
+    : <a href={`/comic/${b.target}`} aria-label={b.name} data-nav={b.key}>{b.label}</a>)}
+  <a href={`/comic/${randomFallback}`} aria-label="Random comic" data-nav="random">?</a>
+  {buttons.slice(2).map((b) => b.target === null
+    ? <span class="disabled" aria-disabled="true" aria-label={b.name}>{b.label}</span>
+    : <a href={`/comic/${b.target}`} aria-label={b.name} data-nav={b.key}>{b.label}</a>)}
+</nav>
+<script>
+  import { randomExcluding } from '../lib/comics';
+  const nav = document.querySelector<HTMLElement>('.comic-nav');
+  if (nav) {
+    const numbers: number[] = JSON.parse(nav.dataset.numbers ?? '[]');
+    const current = Number(nav.dataset.current);
+    document.querySelectorAll<HTMLAnchorElement>('.comic-nav [data-nav="random"]').forEach((a) =>
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        location.href = `/comic/${randomExcluding(numbers, current, Math.random)}`;
+      }),
+    );
+    document.addEventListener('keydown', (e) => {
+      if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+      const tag = (e.target as HTMLElement | null)?.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+      const key = e.key === 'ArrowLeft' ? 'prev' : e.key === 'ArrowRight' ? 'next' : null;
+      if (key) nav.querySelector<HTMLAnchorElement>(`[data-nav="${key}"]`)?.click();
+    });
+  }
+</script>
+<style>
+  .comic-nav { display: flex; justify-content: center; gap: 0.5rem; margin: 1rem 0; }
+  .comic-nav a, .comic-nav .disabled {
+    min-width: 3rem; padding: 0.4rem 0.8rem; text-align: center;
+    border: 1px solid var(--border); border-radius: 4px; text-decoration: none; font-weight: 600;
+  }
+  .comic-nav .disabled { color: var(--muted); opacity: 0.5; cursor: not-allowed; }
+</style>

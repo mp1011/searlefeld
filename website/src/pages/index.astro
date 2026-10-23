@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ComicViewer from '../components/ComicViewer.astro';
+import ComicNav from '../components/ComicNav.astro';
+import { latest, sortedComics } from '../lib/comics';
+
+const all = await getCollection('comics');
+const comic = latest(all);
+const numbers = sortedComics(all).map((c) => c.data.comicNumber);
+if (!comic) throw new Error('No comics found in src/content/comics');
+---
+<BaseLayout title={comic.data.title}>
+  <ComicNav numbers={numbers} current={comic.data.comicNumber} />
+  <ComicViewer
+    title={comic.data.title}
+    image={comic.data.image}
+    altText={comic.data.altText}
+    hoverText={comic.data.hoverText}
+    transcript={comic.body}
+  />
+  <ComicNav numbers={numbers} current={comic.data.comicNumber} />
+</BaseLayout>
+

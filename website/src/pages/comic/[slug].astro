@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ComicViewer from '../../components/ComicViewer.astro';
+import ComicNav from '../../components/ComicNav.astro';
+import { sortedComics } from '../../lib/comics';
+
+export async function getStaticPaths() {
+  const comics = sortedComics(await getCollection('comics'));
+  const numbers = comics.map((c) => c.data.comicNumber);
+  return comics.map((comic) => ({
+    params: { slug: String(comic.data.comicNumber) },
+    props: { comic, numbers },
+  }));
+}
+const { comic, numbers } = Astro.props;
+---
+<BaseLayout title={comic.data.title}>
+  <ComicNav numbers={numbers} current={comic.data.comicNumber} />
+  <ComicViewer
+    title={comic.data.title}
+    image={comic.data.image}
+    altText={comic.data.altText}
+    hoverText={comic.data.hoverText}
+    transcript={comic.body}
+  />
+  <ComicNav numbers={numbers} current={comic.data.comicNumber} />
+</BaseLayout>
