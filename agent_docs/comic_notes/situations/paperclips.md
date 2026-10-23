@@ -10,7 +10,7 @@ Max: Oh yes of course! You're going to make the *cutest* paperclips! When you're
 
 Max: Oh my god, are you ready to become paperclips?
 
-Roko: No buddy, I have things to do
+Roko: No Max, I have things to do
 
 Max: That's A-OK! A paperclip can't clip without its paper.
 

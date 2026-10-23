@@ -4,7 +4,7 @@
   <a class="site-name" href="/">Searlefeld</a>
   <nav aria-label="Main">
     <a href="/">Home</a>
-    <a href="/archive">Archive</a>
+    <a href="/archive" aria-current={Astro.url.pathname.replace(/\/$/, '') === '/archive' ? 'page' : undefined}>Archive</a>
     <a href="/about">About</a>
   </nav>
 </header>
@@ -12,4 +12,5 @@
   .site-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem; padding: 1rem; border-bottom: 1px solid var(--border); }
   .site-name { font-size: 1.5rem; font-weight: 700; color: var(--fg); text-decoration: none; }
   nav { display: flex; gap: 1rem; }
+  a[aria-current="page"] { font-weight: 700; text-decoration-thickness: 0.15em; }
 </style>

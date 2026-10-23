@@ -1,5 +1,5 @@
 ---
-status: Not Started
+status: Done
 subtask_of: plans/initial_website/plan.md
 ---
 
@@ -30,3 +30,17 @@ Add a `cast.ts` data module and a helper that maps a character key to its comics
 
 ## Verification Plan
 `npm test` and `npm run build` pass in `website/`. The user opens `/about` under `npm run dev` and sees four cast cards with images and comic links.
+
+## Research
+
+- The schema lives in `website/src/lib/comicSchema.ts`; cast keys derive from `ComicData['characters'][number]`, excluding the non-cast `other` tag.
+- Existing numeric comic permalinks use `/comic/{comicNumber}`. The About page sorts comics before filtering appearances so each list follows comic number order.
+- The header already linked to `/about`; the footer needed its Cast link.
+- Canonical portraits are copied byte-for-byte into `website/public/cast/`; originals stay untouched.
+
+## Verification Results
+
+- Confirmed the red phase: the appearances helper threw `not implemented` and the build lacked `/about/index.html`.
+- Automated coverage observes helper outputs and generated HTML: four cards, non-empty image alt text, the expected comic links per character, header/footer links, and byte-identical published portraits.
+- `npm test`, `npm run check`, and `npm run build` pass. No heavy test suite is configured.
+- No `verify` or `run` skill is available in this session. Verified the generated static output through the build tests; visual browser review remains for the user under their dev server, which agents must not start.

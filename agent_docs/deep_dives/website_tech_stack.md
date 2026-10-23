@@ -169,6 +169,44 @@ jobs:
 
 ## Implementation Roadmap (Subtasks)
 
+### Archive implementation
+
+`website/src/pages/archive.astro` uses `sortedComics` to render an ordered
+thumbnail grid linking to numeric comic permalinks. `src/lib/dates.ts` formats
+publish dates with an explicit English locale and UTC timezone, avoiding a
+previous-day display on machines west of UTC. Each date also has an ISO
+`datetime` value. The grid uses one column up to 40rem, two up to 48rem, and
+three above that; images retain their full content with `object-fit: contain`.
+The header marks Archive current for both `/archive` and `/archive/`.
+Date unit tests and generated-HTML build tests cover metadata and navigation.
+
+### About and cast implementation
+
+`website/src/lib/cast.ts` holds the four typed cast records and the pure
+`appearances(comics, character)` filter. Character keys derive from the comics
+schema; `other` is a comic tag rather than a cast member. The caller controls
+comic ordering. `/about` supplies comics sorted by number to `CastCard.astro`,
+which omits the appearances section when its list is empty. Portraits are
+unchanged copies of the canonical reference images in `public/cast/`.
+`tests/cast.test.ts` covers the filter and schema compatibility;
+`tests/build.test.ts` checks the generated page, links, alt text and image copies.
+
+### Social metadata and RSS implementation
+
+`src/lib/meta.ts` provides pure `buildMeta(comic | null, site)` metadata, using
+alt text or the first nonempty transcript line for comic descriptions. The
+site defaults use the cast portrait. `BaseLayout.astro` renders description,
+Open Graph and Twitter card tags, accepts title/description/image overrides,
+and adds RSS discovery to every page. Comic permalinks pass their comic entry;
+the home page uses site defaults. The footer links to `/rss.xml`.
+
+`src/pages/rss.xml.ts` uses `@astrojs/rss` and reversed `sortedComics` results
+for a newest-first RSS 2.0 feed. Each description includes escaped text and
+an absolute image URL. All origins come from Astro's `site` config, currently
+`http://localhost:4321`; replace that placeholder when choosing hosting.
+Unit tests cover metadata defaults and transcript fallback; build tests inspect
+rendered metadata and parse/validate the feed with `fast-xml-parser`.
+
 1. **Subtask 1: Initialize Astro Website Skeleton & Comic Content Schema**
    - Initialize Astro with TypeScript under `website/` (or repository root).
    - Configure Content Collections with Zod schema (`comicNumber`, `title`, `publishDate`, `image`, `altText`, `transcript`).

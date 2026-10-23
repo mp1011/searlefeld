@@ -1,5 +1,5 @@
 ---
-status: Not Started
+status: Done
 subtask_of: plans/initial_website/plan.md
 ---
 
@@ -21,6 +21,11 @@ The user opens `/archive` and sees every comic in order as a thumbnail grid with
 ## Implementation Plan
 Reuse the sorted-comics helper, add a date-format helper, and render a CSS grid.
 
+## Research
+- Reused `website/src/lib/comics.ts` and `BaseLayout.astro`; existing header had no current-page marker.
+- Added `src/lib/dates.ts` with explicit en-US/UTC formatting and `src/pages/archive.astro` with an ordered thumbnail grid.
+- Preserved the pre-existing uncommitted about/cast work and extended the shared build test.
+
 ## Testing Plan
 - Vitest: the date-format helper turns `2026-10-22` into the chosen display string.
 - Build test: `dist/archive/index.html` contains one link per comic, in ascending order, each with `href="/comic/<n>"` and an `<img>` whose `alt` matches that comic's `altText`.
@@ -28,3 +33,10 @@ Reuse the sorted-comics helper, add a date-format helper, and render a CSS grid.
 
 ## Verification Plan
 `npm test` and `npm run build` pass in `website/`. The user opens `/archive` under `npm run dev` at desktop and phone widths and clicks a thumbnail to land on that comic.
+
+## Verification Results
+- Confirmed red phase: date formatter threw the scaffold error and archive build test failed because the route did not exist.
+- `npm test`: all 18 tests passed. `npm run check`: zero errors, warnings or hints. `npm run build`: seven pages emitted.
+- Chromium rendered the built HTML from local files, without starting a server: 390px viewport had one column; 1280px had three. Neither overflowed horizontally, and all three thumbnails loaded.
+- Generated output tests verify one permalink per comic in ascending order, image alt text, number, title, ISO/display date and the Archive current-page marker; all linked comic pages are emitted.
+- No heavy suite or verify/run skill is available. Live dev-server click-through remains a user review step under the repository's user-only dev-server rule.

@@ -1,5 +1,5 @@
 ---
-status: Ready for Review
+status: Done
 subtask_of: plans/initial_website/plan.md
 ---
 

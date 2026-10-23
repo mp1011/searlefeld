@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 }
 const { comic, numbers } = Astro.props;
 ---
-<BaseLayout title={comic.data.title}>
+<BaseLayout comic={comic}>
   <ComicNav numbers={numbers} current={comic.data.comicNumber} />
   <ComicViewer
     title={comic.data.title}

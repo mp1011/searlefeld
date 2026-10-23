@@ -1,0 +1,29 @@
+---
+import type { CastMember, CharacterKey } from '../lib/cast';
+import type { ComicEntry } from '../lib/comics';
+
+interface Props { character: CharacterKey; member: CastMember; comics: ComicEntry[] }
+const { character, member, comics } = Astro.props;
+---
+<article class="cast-card" data-character={character} aria-labelledby={`cast-${character}`}>
+  <h2 id={`cast-${character}`}>{member.name}</h2>
+  <img src={member.image} alt={member.alt} loading="lazy" />
+  <p>{member.blurb}</p>
+  {comics.length > 0 && (
+    <section aria-label={`${member.name} comic appearances`}>
+      <h3>Appears in</h3>
+      <ul>
+        {comics.map((comic) => (
+          <li><a href={`/comic/${comic.data.comicNumber}`}>#{comic.data.comicNumber}: {comic.data.title}</a></li>
+        ))}
+      </ul>
+    </section>
+  )}
+</article>
+<style>
+  .cast-card { min-width: 0; padding: 1rem; border: 1px solid var(--border); border-radius: 0.5rem; }
+  h2 { margin-top: 0; }
+  img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; }
+  h3 { font-size: 1rem; }
+  ul { padding-left: 1.25rem; }
+</style>

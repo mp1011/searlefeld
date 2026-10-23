@@ -1,9 +1,12 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-interface Props { title?: string }
-const { title } = Astro.props;
-const pageTitle = title ? `${title} | Searlefeld` : 'Searlefeld';
+import { buildMeta } from '../lib/meta';
+import type { ComicEntry } from '../lib/comics';
+interface Props { title?: string; description?: string; image?: string; comic?: ComicEntry }
+const site = Astro.site!;
+const defaults = buildMeta(Astro.props.comic ?? null, site);
+const { title = defaults.title, description = defaults.description, image = defaults.image } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -11,7 +14,15 @@ const pageTitle = title ? `${title} | Searlefeld` : 'Searlefeld';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
-    <title>{pageTitle}</title>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, site).href} />
+    <meta property="og:url" content={new URL(Astro.url.pathname, site).href} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="alternate" type="application/rss+xml" title="Searlefeld RSS" href={new URL('/rss.xml', site).href} />
   </head>
   <body>
     <Header />

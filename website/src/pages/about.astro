@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CastCard from '../components/CastCard.astro';
+import { appearances, cast } from '../lib/cast';
+import { sortedComics } from '../lib/comics';
+
+const comics = sortedComics(await getCollection('comics'));
+const characters = Object.keys(cast) as (keyof typeof cast)[];
+---
+<BaseLayout title="About & Cast">
+  <h1>About Searlefeld</h1>
+  <p>Four AI thought experiments share a New York-style apartment. Roko, Max, Ailan and Chinese Room navigate everyday life with some very particular priorities.</p>
+  <p>The four friends are always there for one another, as long as being there doesn’t conflict with torturing unhelpers, making paperclips or passing for human.</p>
+  <img class="ensemble" src="/cast/cast-portrait-v1.png" alt="Group portrait of the four Searlefeld roommates: Roko, Max, Ailan and Chinese Room." />
+  <div class="cast-grid">
+    {characters.map((character) => <CastCard character={character} member={cast[character]} comics={appearances(comics, character)} />)}
+  </div>
+</BaseLayout>
+<style>
+  .ensemble { display: block; width: 100%; margin: 2rem auto; }
+  .cast-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+  @media (max-width: 40rem) { .cast-grid { grid-template-columns: 1fr; } }
+</style>

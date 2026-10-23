@@ -5,3 +5,5 @@
 3. A robot rudely shoves Ailan out of the way. Robot: "Move it, fleshwad!" Ailan has a look of shock
 4. The robot continues walking, saying: "Fricking humans think they own the whole sidewalk"
 5. Close up on Ailan who now has a look of pride, "Yeah, I still got it"
+
+note - comic can lead into "wins.md"

@@ -11,8 +11,9 @@ Chinese Room is unique in that he's the only one of the main cast without a spec
 
 ## Physical Appearance
 - He appears as a monitor on a wall, behind which is assumed to be the titular room.
-- the interior is never seen, although sometimes the person inside may take part in adventures.
+- the interior is rarely seen, although sometimes the person inside may take part in adventures.
 
 ## Humor By Omission
 - it's never explained how a human reading symbols off a book is able to have complex conversations about all matter of subjects
 - he's fully convinced he's "speaking chinese"
+- nobody ever figures out that the chinese room is faciliated by a man translating symbols from a book
