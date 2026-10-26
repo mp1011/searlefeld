@@ -1,5 +1,10 @@
 ---
 status: Ready for Review
+plan_order:
+  - plans/image_generator/build_reference_library_and_prompt_assistant.md
+  - plans/image_generator/build_image_generation_command.md
+  - plans/image_generator/build_speech_bubble_renderer.md
+  - plans/image_generator/build_panel_and_strip_compositor.md
 ---
 
 # GOAL
@@ -21,7 +26,7 @@ Full evaluation: `agent_docs/deep_dives/comic_generation_stack.md`.
 - **Testing**: Vitest for prompt assembly, bubble layout, spec validation, compositing output.
 
 # Follow-up Implementation Plans
-1. `agent_docs/plans/build_reference_library_and_prompt_assistant.md`
-2. `agent_docs/plans/build_image_generation_command.md`
-3. `agent_docs/plans/build_speech_bubble_renderer.md`
-4. `agent_docs/plans/build_panel_and_strip_compositor.md`
+1. `agent_docs/plans/image_generator/build_reference_library_and_prompt_assistant.md`
+2. `agent_docs/plans/image_generator/build_image_generation_command.md`
+3. `agent_docs/plans/image_generator/build_speech_bubble_renderer.md`
+4. `agent_docs/plans/image_generator/build_panel_and_strip_compositor.md`

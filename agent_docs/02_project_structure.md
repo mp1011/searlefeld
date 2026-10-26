@@ -29,6 +29,7 @@ This is a practical map of the repository, organized by the three major project 
 ### Agent Docs & Repo Tooling (`agent_docs/`, `scripts/`)
 - `agent_docs/00_start_here.md` — Session startup rules, area routing table, and task quick reference.
 - `agent_docs/01_overview.md` — One-page overview of Searlefeld and its three repository areas.
+- `agent_docs/03_image_gen.md` — Image request routing, reference selection, apartment states and angles, fixed decorations, and generation/verification workflow.
 - `agent_docs/instructions/` — Workflow instructions (`low_trust/` interactive and `high_trust/` unattended).
 - `agent_docs/plans/` — Tracked implementation plans and subtasks (`initial_website/`, `image_generator/`).
 - `scripts/work_dot_bat/` — Mechanical check scripts, plan status manager (`plan-status.sh`), and structure sync (`update-project-structure.sh`).

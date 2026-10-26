@@ -46,6 +46,7 @@ Do **not** read docs from unrelated areas. Match your task to one of the three m
 
 | Task | Read |
 |---|---|
+| Generate or edit any image (panels, backgrounds, characters, props, banners, references) | `agent_docs/03_image_gen.md` first, then the relevant visual references and character/scene notes it routes to |
 | Small change or bug fix | `agent_docs/instructions/low_trust/do-work.md` (interactive) or `high_trust/do-work-yolo.md` (unattended) |
 | Break a large task into subtasks | `agent_docs/instructions/high_trust/task-breakdown.md` |
 | Work the next subtask of a plan | `agent_docs/instructions/high_trust/next-subtask-yolo.md` |

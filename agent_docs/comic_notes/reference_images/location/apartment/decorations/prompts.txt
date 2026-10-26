@@ -1,0 +1,9 @@
+Generated using built-in image_gen with transparent_background=true.
+
+roko-framed-vlad.png: Isolated framed photo-style reproduction of a historical portrait of Vlad the Impaler, long dark curls, moustache, jeweled red cap and period clothing, dark wood frame. Entire frame visible, nearly straight-on. Detailed inked 2D comic illustration, warm muted palette. Transparent background, no surrounding scene, labels, additional props or external cast shadow.
+
+max-paperclip-bonsai.png: Isolated bonsai with natural gnarled wooden trunk and silver office paperclips replacing every leaf, arranged in pruned canopy clusters. No green foliage. Shallow sage ceramic bonsai pot with soil, entire object visible in three-quarter view. Detailed inked 2D comic illustration, warm muted palette. Transparent background, no tabletop, room, labels, additional props or external cast shadow.
+
+ailan-placeholder-collage.png: Built-in image_gen. Dark wooden collage frame, six empty photo openings each reading Place photo here, central sentiment Together is our favorite place to be. Detailed inked comic illustration. Transparent background requested, but generated output retained a brown backdrop after repeated attempts.
+
+chinese-room-framed-home.png: Built-in image_gen with transparent_background=true. Isolated dark walnut framed Chinese calligraphy, single character 家 (home), black brush ink on warm ivory rice paper with cream mat. Front view, detailed inked 2D comic illustration, warm muted palette. No additional lettering, seals, signatures, scene, or external shadow.
