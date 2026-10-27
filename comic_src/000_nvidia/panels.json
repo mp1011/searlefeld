@@ -1,0 +1,102 @@
+{
+  "source": "agent_docs/comic_notes/situations/nvidia.md",
+  "title": "",
+  "panels": [
+    {
+      "width": 0,
+      "height": 0,
+      "row": 0,
+      "column": 0,
+      "background": {
+        "reference": "",
+        "description": ""
+      },
+      "characters": [
+        {
+          "character": "",
+          "action": "",
+          "mood": "",
+          "dialogue": ""
+        },
+        {
+          "character": "",
+          "action": "",
+          "mood": "",
+          "dialogue": ""
+        }
+      ]
+    },
+    {
+      "width": 0,
+      "height": 0,
+      "row": 0,
+      "column": 1,
+      "background": {
+        "reference": "",
+        "description": ""
+      },
+      "characters": [
+        {
+          "character": "",
+          "action": "",
+          "mood": "",
+          "dialogue": ""
+        },
+        {
+          "character": "",
+          "action": "",
+          "mood": "",
+          "dialogue": ""
+        }
+      ]
+    },
+    {
+      "width": 0,
+      "height": 0,
+      "row": 1,
+      "column": 0,
+      "background": {
+        "reference": "",
+        "description": ""
+      },
+      "characters": [
+        {
+          "character": "",
+          "action": "",
+          "mood": "",
+          "dialogue": ""
+        },
+        {
+          "character": "",
+          "action": "",
+          "mood": "",
+          "dialogue": ""
+        }
+      ]
+    },
+    {
+      "width": 0,
+      "height": 0,
+      "row": 1,
+      "column": 1,
+      "background": {
+        "reference": "",
+        "description": ""
+      },
+      "characters": [
+        {
+          "character": "",
+          "action": "",
+          "mood": "",
+          "dialogue": ""
+        },
+        {
+          "character": "",
+          "action": "",
+          "mood": "",
+          "dialogue": ""
+        }
+      ]
+    }
+  ]
+}

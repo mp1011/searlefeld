@@ -1,8 +1,15 @@
 {
   "name": "searlefeld-tooling",
   "private": true,
-  "description": "Root-level dev dependencies so scripts/work_dot_bat/typescript checks can resolve typescript.",
+  "description": "Root-level tooling: the comic generation CLI (tools/comic) and dev dependencies for scripts/work_dot_bat/typescript checks.",
+  "scripts": {
+    "comic": "tsx tools/comic/cli.ts",
+    "test": "vitest run"
+  },
   "devDependencies": {
-    "typescript": "^6.0.3"
+    "@types/node": "^26.6.5",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.5"
   }
 }

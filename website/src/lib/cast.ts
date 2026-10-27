@@ -20,8 +20,8 @@ export const cast: Record<Exclude<CharacterKey, 'other'>, CastMember> = {
     blurb: 'Designed to pass the Turing Test, Ailan constantly changes his look and personality to seem more human. He swings between immense pride in his performance and feeling like a complete fraud.',
   },
   chinese_room: {
-    name: 'Chinese Room', image: '/cast/chinese-room-front-v1.png',
-    alt: 'Front reference view of Chinese Room, represented by a face on a wall-mounted monitor.',
+    name: 'Chinese Room', image: '/cast/chinese-room-dot-matrix-expressions-v1.png',
+    alt: 'Character reference sheet of Chinese Room, showing the dot-matrix expressions of the face on a wall-mounted monitor.',
     blurb: 'Chinese Room is an unseen human consulting a symbol book, communicating with the roommates through a face on the wall. Calm and collected, he offers level-headed advice whenever the book allows it.',
   },
 };
