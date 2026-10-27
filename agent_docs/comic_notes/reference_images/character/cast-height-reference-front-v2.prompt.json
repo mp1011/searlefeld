@@ -1,0 +1,11 @@
+{
+  "tool": "built-in image_gen",
+  "input": "cast-height-reference-front-v1.png",
+  "role": "Edit target; preserve approved three standing characters",
+  "prompt": "Edit only Chinese Room on the RIGHT of this height reference. Preserve Ailan, Max, and Roko exactly as supplied: same sizes, positions, designs, poses, faces, all their labels. Preserve title and ivory background. Enlarge Chinese Room's entire monitor uniformly by 1.5x, from 60x45 cm to 90x67.5 cm. Retain same black frame, pale striped paper and dot matrix smiling face, no body. Keep its center at same vertical position (160 cm target mounting height). Fit enlarged monitor in right-hand blank space without touching Roko or clipping canvas. Move Chinese Room name and dimension label below the enlarged monitor. Replace old dimension label with exact text '90 × 67.5 cm · center 160 cm'. Do not change the three approved standing characters at all. No ruler, arrows, extra objects or extra characters.",
+  "dimensions": {
+    "width_cm": 90,
+    "height_cm": 67.5,
+    "center_above_floor_cm": 160
+  }
+}

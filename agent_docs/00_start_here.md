@@ -38,9 +38,9 @@ Do **not** read docs from unrelated areas. Match your task to one of the three m
 
 | Area | When Working On... | Read ONLY | Do NOT Read |
 |---|---|---|---|
-| **1. Characters, Story and Environment** | Writing/editing scripts, character bios, dialogue, or visual reference notes | `agent_docs/comic_notes/README.md`, relevant files in `agent_docs/comic_notes/characters/`, `agent_docs/comic_notes/situations/`, and `agent_docs/comic_notes/reference_images/` | Website (`website_tech_stack.md`) or Image Creator (`comic_generation_stack.md`) specs |
-| **2. Website** | Astro pages, components, comic viewer/navigation, RSS, SEO, or Cloudflare deployment | `agent_docs/deep_dives/website_tech_stack.md` and `agent_docs/plans/initial_website/plan.md` (plus `agent_docs/comic_notes/README.md` only if writing cast/about copy or sample comics) | Image Creator pipeline specs (`comic_generation_stack.md`, `plans/image_generator/`) |
-| **3. Image Creator** | 7-stage comic generation CLI, parsers, prompt assembly, AI image providers, speech bubbles, or panel/strip compositing | `agent_docs/deep_dives/comic_generation_stack.md` and `agent_docs/plans/image_generator/overall.md` (plus `agent_docs/comic_notes/` only when mapping character/room references or scene inputs) | Website architecture docs (`website_tech_stack.md`, `plans/initial_website/`) |
+| **1. Characters, Story and Environment** | Writing/editing scripts, character bios, dialogue, or visual reference notes | `agent_docs/comic_notes/README.md`, relevant files in `agent_docs/comic_notes/characters/`, `agent_docs/comic_notes/situations/`, and `agent_docs/comic_notes/reference_images/` | Website (`website_tech_stack.md`) or Image Creator (`plans/image_generator/`) specs |
+| **2. Website** | Astro pages, components, comic viewer/navigation, RSS, SEO, or Cloudflare deployment | `agent_docs/deep_dives/website_tech_stack.md` and `agent_docs/plans/initial_website/plan.md` (plus `agent_docs/comic_notes/README.md` only if writing cast/about copy or sample comics) | Image Creator pipeline specs (`plans/image_generator/`) |
+| **3. Image Creator** | 7-stage comic generation CLI, panels.json, Codex prompts, image generation, or panel/strip stitching | `agent_docs/plans/image_generator/overall.md` (plus `agent_docs/comic_notes/` only when mapping character/room references or scene inputs) | Website architecture docs (`website_tech_stack.md`, `plans/initial_website/`) |
 
 ### Task Quick Reference
 
@@ -59,7 +59,7 @@ Do **not** read docs from unrelated areas. Match your task to one of the three m
 | Where is a file / what does it do? | `agent_docs/02_project_structure.md` |
 | Characters, story & environment notes | `agent_docs/comic_notes/README.md` (`characters/`, `situations/`, `reference_images/`) |
 | Website architecture & tech stack | `agent_docs/deep_dives/website_tech_stack.md` |
-| Image Creator pipeline & tech stack | `agent_docs/deep_dives/comic_generation_stack.md` and `agent_docs/plans/image_generator/overall.md` |
+| Image Creator pipeline & tech stack | `agent_docs/plans/image_generator/overall.md` |
 
 ## How to run things
 

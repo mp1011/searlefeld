@@ -12,7 +12,7 @@ Read this guide whenever a task requests a new image or an edit to an existing i
 | Isolated decoration or prop | Matching prop reference in `comic_notes/reference_images/location/apartment/decorations/` |
 | New camera angle | Closest existing angle as primary reference; other angles only to establish room geometry and continuity |
 | Banner or ensemble | Relevant cast references plus existing banner images for composition when appropriate |
-| Comic CLI generation or changes to its implementation | Also read [pipeline specification](deep_dives/comic_generation_stack.md); preserve its stage gates |
+| Comic CLI generation or changes to its implementation | Also read [the Image Creator plan](plans/image_generator/overall.md); preserve its stage gates |
 | Unrelated, non-comic image | Use the applicable image-generation skill and the user's supplied references; do not impose this comic's cast or setting |
 
 Use the available imagegen skill and built-in image generation/editing tool when available. Read the skill before its first use. Do not silently switch to a paid API/CLI workflow. For an image edit, inspect the actual input image first and pass it to the tool; filenames and prose descriptions alone do not establish visual continuity.
@@ -40,6 +40,14 @@ Paths here are relative to `agent_docs/comic_notes/reference_images/`.
 | Group | `character/cast-portrait-v1.png` | Supporting ensemble appearance; individual sheets remain primary for each design |
 
 Chinese Room's visible presence is the wall monitor. Do not invent a fourth free-standing robot body. The human and room behind the wall stay unseen unless the requested scene explicitly reveals them. Chinese Room does not understand Chinese; responses come from a symbol book. The Chinese calligraphy is a chosen decoration, not evidence of fluency. A blank blue monitor in an environment reference is a background placeholder: when Chinese Room is acting in a scene, use the expression reference to render its face on that same monitor.
+
+## Standard cast sizes
+
+For every image containing the cast, read [the sizing instructions](comic_notes/reference_images/character/cast-height-reference.md) and include `character/cast-height-reference-front-v2.png` as an actual scale-reference input alongside the relevant identity sheets. The lineup controls relative scale; individual sheets control design. Ailan (called Alain in the height-reference request) remains the repository's character name.
+
+Use these working production targets: Ailan 175 cm (1.000×), Max 183 cm (1.046×), Roko 191 cm (1.091×, including horns). All three are adult human scale with modest 8 cm steps. Chinese Room is a 90 × 67.5 cm wall monitor centered 160 cm above the floor, not a standing body. These concrete defaults implement the requested relative ordering; they can be revised by the user.
+
+At equal depth, preserve Ailan < Max < Roko. Do not normalize separately cropped turnaround sheets to equal head or body heights. Account for perspective, pose and Roko's habitual slouch without changing underlying size. Keep the monitor's outer dimensions and mounting position stable across panels. Check relative size against the lineup before accepting an image.
 
 ## Apartment references: choose a state and camera
 

@@ -1,0 +1,57 @@
+FLANNELBEES — RESTAURANT IMAGE REFERENCE
+
+CONCEPT AND WORLD
+Flannelbees is an in-universe, family-friendly chain restaurant with a flannel
+theme. The feel is warm, approachable, comfortably corny corporate rustic:
+an affordable casual family restaurant, rather than a luxury lodge.
+It exists in a city setting. Restaurants serve humans because robots do not
+eat. Robots can work as cooks or waiters. Show human diners; robots shown
+working should be serving, taking orders, or cooking, never eating.
+Human staff can also appear.
+
+ESTABLISHED VISUAL DIRECTION
+The selected direction is the classic red-plaid lodge look:
+- Red-and-black buffalo plaid booth upholstery and staff shirts.
+- Honey-colored wood paneling, wooden tables, and substantial timber beams.
+- Warm amber lighting and pine-pattern pendant lamps.
+- Cozy, slightly kitschy woodland decor and a decorative stone fireplace.
+- Frequent stylized pine-tree motifs: lampshades, framed art, booth dividers,
+  carved trim, window decals, table accessories, and subtle carpet patterns.
+- Casual American family meals, such as burgers and fries, suit the references.
+Keep the layout practical for restaurant service and conversations in comics.
+
+CITY EXTERIOR
+The restaurant occupies a street-level storefront in an urban building.
+Show sidewalks, neighboring storefronts, and multistory city buildings.
+Combine warm wood storefront trim with the surrounding urban brick facade,
+large inviting windows, red awnings with plaid accents, amber lanterns, and
+repeated pine silhouettes. The exterior can display the name "Flannelbees".
+Do not turn it into a remote cabin, forest resort, or suburban parking-lot site.
+
+INTERIOR
+Do not display the restaurant name inside. Use recurring pine motifs to
+communicate the brand instead of interior wordmarks. The approved city
+interior reference uses symbol-only decor and accessories.
+Street-facing windows should establish the city outside when visible.
+Maintain the cozy lodge styling within this urban space.
+
+REFERENCE IMAGES
+original-plaid-lodge.png
+  Original selected concept. Reference for the overall mood, red plaid,
+  warm wood, and lodge styling. Its interior restaurant-name signs are
+  superseded by the later instruction to omit the name from interiors.
+city-exterior.png
+  Exterior direction: urban storefront, plaid-trimmed awnings, warm wood,
+  exterior name sign, and frequent pine motifs.
+city-interior.png
+  Updated interior direction: city windows, red plaid booths, recurring
+  pine motifs, and no restaurant-name signage. Prefer this reference for
+  future interiors.
+Generated incidental slogans, dates, neighboring businesses, and other
+background lettering are not established world facts.
+
+STORY CONNECTION
+Introduced in agent_docs/comic_notes/situations/bus_stop.md. A "Coupon Man"
+wearing a branded flannel shirt promotes 50% off any entree at Flannelbees.
+He is identified as a robot in the scene. This establishes the restaurant's
+flannel branding, coupon marketing, and connection to robot workers.

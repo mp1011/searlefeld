@@ -24,7 +24,6 @@ This is a practical map of the repository, organized by the three major project 
 - `tools/comic/` — TypeScript CLI and modules for the 7-stage human-gated comic generation pipeline (parsers, prompt assembly, AI image providers, SVG/`sharp` speech bubble renderer, and strip compositor).
 - `comic_assets/references/manifest.json` — Maps character and location names to reference images in `agent_docs/comic_notes/reference_images/`.
 - `comics_src/<NNNN-slug>/` — Per-strip workspace containing `strip.json` gate state and stage outputs (`01_layout.md` through `07_final/strip.png`).
-- `agent_docs/deep_dives/comic_generation_stack.md` — Full 7-stage pipeline specification and architecture.
 
 ### Agent Docs & Repo Tooling (`agent_docs/`, `scripts/`)
 - `agent_docs/00_start_here.md` — Session startup rules, area routing table, and task quick reference.
