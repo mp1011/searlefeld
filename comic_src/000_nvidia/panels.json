@@ -9,7 +9,8 @@
       "column": 0,
       "background": {
         "reference": "agent_docs/comic_notes/reference_images/location/apartment/workshop-loft-angle-1-entrance-door-open-lived_in.png",
-        "description": "View of the apartment entrance. Roko has just come through the open door. Frame the entrance so Chinese Room and the entire wall bearing his face remain strictly outside the shot. Do not reveal that wall until the final panel."
+        "description": "View of the apartment entrance. Roko has just come through the open door. Frame the entrance so Chinese Room and the entire wall bearing his face remain strictly outside the shot. Do not reveal that wall until the final panel.",
+        "mode": "reference"
       },
       "characters": [
         {
@@ -26,8 +27,9 @@
       "row": 0,
       "column": 1,
       "background": {
-        "reference": "agent_docs/comic_notes/reference_images/location/apartment/workshop-loft-angle-3-workbench-lived_in.png",
-        "description": "Frame Roko standing near Max, who is relaxing on the couch. Keep Chinese Room and the entire wall bearing his face strictly outside the shot; do not reveal that wall until the final panel. Roko explains the graphics-card purchase verbally, with no screen, diagram, or television. Leave ample clear space above the characters for Roko's explanation."
+        "reference": "agent_docs/comic_notes/reference_images/location/apartment/workshop-loft-angle-4-couch-lived_in-v2.png",
+        "description": "Frame Roko standing near Max, who is relaxing on the couch. Keep Chinese Room and the entire wall bearing his face strictly outside the shot; do not reveal that wall until the final panel. Roko explains the graphics-card purchase verbally, with no screen, diagram, or television. Leave ample clear space above the characters for Roko's explanation.",
+        "mode": "reference"
       },
       "characters": [
         {
@@ -51,7 +53,8 @@
       "column": 0,
       "background": {
         "reference": "agent_docs/comic_notes/reference_images/location/apartment/workshop-loft-angle-3-workbench-lived_in.png",
-        "description": "Frame the couch as the focus of the living area. Max relaxes on the couch while Roko stands nearby. Her paperclip production happens offscreen; she shares the news casually from her seat. Keep Chinese Room and the entire wall bearing his face strictly outside the shot. After Max's dialogue, place Chinese Room's suggestion in an offscreen speech balloon with its tail leading beyond the frame. Do not show his face, monitor, wall, or a speaker inset. Do not reveal that wall until the final panel."
+        "description": "Frame the couch as the focus of the living area. Max relaxes on the couch while Roko stands nearby. Her paperclip production happens offscreen; she shares the news casually from her seat. Keep Chinese Room and the entire wall bearing his face strictly outside the shot. After Max's dialogue, place Chinese Room's suggestion in an offscreen speech balloon with its tail leading beyond the frame. Do not show his face, monitor, wall, or a speaker inset. Do not reveal that wall until the final panel.",
+        "mode": "reference"
       },
       "characters": [
         {
@@ -81,7 +84,8 @@
       "column": 1,
       "background": {
         "reference": "agent_docs/comic_notes/reference_images/location/apartment/workshop-loft-angle-2-monitor-wall-lived_in.png",
-        "description": "Reveal Chinese Room's wall for the first time in this final panel, identifying the source of the previous panel's offscreen suggestion. His face appears on his fixed wall-mounted monitor on the left; Roko faces him on the right. The monitor shows only Chinese Room's face, never television content, diagrams, or graphics-card explanations. Only Roko speaks in this panel; give the visual reveal room to land."
+        "description": "Reveal Chinese Room's wall for the first time in this final panel, identifying the source of the previous panel's offscreen suggestion. His face appears on his fixed wall-mounted monitor on the left; Roko faces him on the right. The monitor shows only Chinese Room's face, never television content, diagrams, or graphics-card explanations. Only Roko speaks in this panel; give the visual reveal room to land.",
+        "mode": "reference"
       },
       "characters": [
         {
@@ -92,9 +96,15 @@
         },
         {
           "character": "roko",
-          "action": "Lets his shoulders drop and turns gratefully toward Chinese Room.",
+          "action": "Sitting on couch, lets his shoulders drop and turns gratefully toward Chinese Room.",
           "mood": "Relieved and sincerely appreciative",
           "dialogue": "Thanks, Chinese Room. You always know exactly what to say."
+        },
+         {
+          "character": "max",
+          "action": "sitting on couch",
+          "mood": "Sunny, reassuring, and delighted with productivity",
+          "dialogue": ""
         }
       ]
     }

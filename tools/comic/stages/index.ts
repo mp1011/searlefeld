@@ -2,8 +2,10 @@ import type { Codex } from '../codex';
 import type { Ask } from '../menu';
 import type { Status } from '../status';
 import { backgroundStage } from './background';
+import { characterStage } from './character';
 import { panelReviewStage } from './panel_review';
 import { panelDescriptionsStage } from './panels';
+import { speechStage } from './speech';
 
 export interface StageContext {
   comicDir: string;
@@ -38,3 +40,5 @@ export const stageHandlers: Record<number, StageHandler> = Object.fromEntries(
 stageHandlers[2] = panelDescriptionsStage;
 stageHandlers[3] = panelReviewStage;
 stageHandlers[4] = backgroundStage;
+stageHandlers[5] = characterStage;
+stageHandlers[6] = speechStage;

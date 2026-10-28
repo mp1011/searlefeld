@@ -25,6 +25,12 @@ Use the available imagegen skill and built-in image generation/editing tool when
 4. For ordinary apartment scenes, use the `lived_in` image for the closest camera angle. Use the other states only when requested or needed for a specific editing task.
 5. Treat old concepts, banners and historical prompt files as supporting context. They do not override the approved character sheets, current apartment states, or the four specific decorations.
 
+### Preserve reference details within the frame
+
+When generating an image based on a reference, preserve all reference details that fall within the requested new frame, unless the user explicitly requests a change. Treat the reference as an established set, including small details such as light switches, outlets, trim, wall decorations, fixtures, furniture, clutter, materials and lighting. A closer crop or new camera angle is not permission to simplify or omit details that remain visible. Preserve their appearance, relative size and physical placement, accounting for perspective and natural occlusion; retain visible portions of objects cut by the frame. Do not move off-camera objects into view or widen the requested frame merely to include them.
+
+Before generation, inspect the reference and explicitly name the details that should remain visible in the tool prompt, including small or peripheral objects likely to be overlooked. State that all other in-frame reference details must also be preserved. After generation, compare the result with the reference for missing, altered or relocated details and repair discrepancies before accepting the result. The user's requested changes and exclusions take precedence.
+
 If a script and reference disagree on a material visual detail, follow the user's explicit direction and state any necessary assumption. Ask only if the conflict prevents a reasonable result. A genuinely new prop or location can be designed without an existing reference; preserve the established comic style and do not present an experiment as canonical without the user's acceptance.
 
 ## Character references
@@ -105,7 +111,7 @@ Example scene prompt structure:
 
 ## Inspect, save and report
 
-- Inspect every result for character identity, camera/room geometry, prop positions, scale, duplicate objects, unintended occupants, text and requested transparency. For multiple angles, compare continuity across the set.
+- Inspect every result for character identity, camera/room geometry, preservation of all in-frame reference details (including small fixtures and peripheral decorations), prop positions, scale, duplicate objects, unintended occupants, text and requested transparency. For multiple angles, compare continuity across the set.
 - Repair targeted errors with the generated image as the edit target and repeat the invariants. Do not claim an unmet requirement is complete; report a persistent limitation honestly.
 - Save project deliverables in the workspace, not only in the generator's default output directory. Use `reference_images/character/` for approved character references, `reference_images/location/apartment/` for apartment variants, and its `decorations/` subdirectory for apartment props. Use the strip's workspace for pipeline outputs.
 - Preserve originals unless replacement was requested. Use descriptive sibling filenames or versions. Keep the established `-undecorated.png`, `-decorated.png`, and `-lived_in.png` suffixes for apartment states.

@@ -5,7 +5,11 @@ export interface PanelCharacter {
   dialogue: string;
 }
 
+export type BackgroundMode = 'generate' | 'reference';
+
 export interface PanelBackground {
+  /** 'reference': crop/resize `reference` deterministically, no AI image generation. Default 'generate'. */
+  mode?: BackgroundMode;
   reference?: string;
   description: string;
 }
@@ -90,6 +94,10 @@ function validatePanel(p: unknown, path: string, errors: string[]): void {
     errors.push(`${path}.background must be an object`);
   } else {
     checkString(p.background, 'reference', `${path}.background`, errors, true);
+    const mode = p.background.mode;
+    if (mode !== undefined && mode !== 'generate' && mode !== 'reference') {
+      errors.push(`${path}.background.mode must be "generate" or "reference"`);
+    }
     checkString(p.background, 'description', `${path}.background`, errors);
   }
   if (!Array.isArray(p.characters)) {

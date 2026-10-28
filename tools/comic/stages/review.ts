@@ -16,6 +16,17 @@ export interface ReviewSteps {
   generate: (index: number) => Promise<PanelResult>;
   /** Opens an interactive session for the user to tweak the image generate() just made. */
   tweak: (index: number) => Promise<void>;
+  /** True when this panel's image is already on disk (made earlier but not accepted); it is reviewed instead of regenerated. */
+  exists?: (index: number) => boolean;
+  /** Extra text logged under the image path whenever a panel is put up for review (e.g. expected dialogue). */
+  reviewNote?: (index: number) => string | undefined;
+  /** Overrides the first "What next?" label for a panel, when tweak() works differently there. */
+  tweakLabel?: (index: number) => string | undefined;
+  /**
+   * Extra "What next?" choices (shown when `when` is absent or true). After one runs the panel is
+   * regenerated, unless run() returns false.
+   */
+  extraActions?: { label: string; when?: (index: number) => boolean; run: (index: number) => Promise<void | boolean> }[];
 }
 
 const isYes = (answer: string) => /^y/i.test(answer.trim());
@@ -36,6 +47,10 @@ export async function reviewPanels(ctx: StageContext, stage: number, steps: Revi
   for (let i = 0; i < steps.panelCount; i++) {
     if (accepted.has(i)) continue;
     let needsGeneration = true;
+    if (steps.exists?.(i)) {
+      needsGeneration = false;
+      ctx.log(`${steps.label} for panel ${i} already exists; skipping to review.`);
+    }
     for (;;) {
       if (needsGeneration) {
         const result = await steps.generate(i);
@@ -47,15 +62,21 @@ export async function reviewPanels(ctx: StageContext, stage: number, steps: Revi
         ctx.log(`${steps.label} ${result.message} created.`);
         needsGeneration = false;
       }
+      const note = steps.reviewNote?.(i);
+      if (note) ctx.log(note);
       const answer = await ctx.ask('Continue? (y/n, q to quit and resume later) ');
       if (isYes(answer)) break;
       if (/^q/i.test(answer.trim())) return false;
+      const extras = (steps.extraActions ?? []).filter((a) => a.when?.(i) ?? true);
       const choice = await chooseOption(ctx.ask, 'What next?', [
-        'Tweak image with a prompt (interactive session)',
+        steps.tweakLabel?.(i) ?? 'Tweak image with a prompt (interactive session)',
         'Edit panels.json and re-generate',
+        ...extras.map((a) => a.label),
       ]);
       if (choice === 0) {
         await steps.tweak(i);
+      } else if (choice >= 2) {
+        needsGeneration = (await extras[choice - 2].run(i)) !== false;
       } else {
         await ctx.ask('Press Enter once panels.json is updated. ');
         needsGeneration = true;

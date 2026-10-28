@@ -39,7 +39,7 @@ describe('dispatch', () => {
 
   it('persists the status a handler returns and continues with the next stage', async () => {
     const dir = newComic(4, [1, 2, 3]);
-    const handlers = { ...stageHandlers, 4: async () => ({ stage: 5, completed: [1, 2, 3, 4] }) };
+    const handlers = { ...stageHandlers, 4: async () => ({ stage: 5, completed: [1, 2, 3, 4] }), 5: notImplemented(5) };
     const log: string[] = [];
     await dispatch(dir, deps(handlers, log));
     expect(readStatus(dir).stage).toBe(5);

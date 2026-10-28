@@ -14,7 +14,7 @@ const panel = (reference: string, description: string, width = 50, height = 50):
   ...panelsTemplate('x.md').panels[0],
   width,
   height,
-  background: { reference, description },
+  background: { mode: 'generate', reference, description },
 });
 
 describe('background helpers', () => {
@@ -131,5 +131,29 @@ describe('backgroundStage', () => {
     expect(codex.runNonInteractive).toHaveBeenCalledTimes(2);
     expect(next.stage).toBe(4);
     expect(readStatus(comicDir).accepted?.['4'] ?? []).toEqual([]);
+  });
+});
+
+describe('backgroundStage mode choice', () => {
+  it('asks how to make a panel whose mode is unset, and remembers the answer', async () => {
+    const { comicDir } = setup([{ ...panel('', 'a room'), background: { reference: '', description: 'a room' } }]);
+    const codex = writingCodex();
+    const answers = ['1', 'y'];
+    await run(comicDir, answers, codex);
+    expect(answers).toEqual([]);
+    expect(codex.runNonInteractive).toHaveBeenCalledTimes(1);
+    expect(JSON.parse(readFileSync(join(comicDir, 'panels.json'), 'utf8')).panels[0].background.mode).toBe('generate');
+  });
+});
+
+describe('backgroundStage existing images', () => {
+  it('reviews an existing unaccepted image without regenerating it', async () => {
+    const { comicDir } = setup([panel('', 'a'), panel('', 'b')]);
+    writeFileSync(join(comicDir, '00_background.png'), 'old');
+    const codex = writingCodex();
+    const next = await run(comicDir, ['y', 'y'], codex);
+    expect(readFileSync(join(comicDir, '00_background.png'), 'utf8')).toBe('old');
+    expect(codex.runNonInteractive).toHaveBeenCalledTimes(1);
+    expect(next.stage).toBe(5);
   });
 });
