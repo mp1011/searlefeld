@@ -15,7 +15,9 @@ export async function dispatch(comicDir: string, deps: DispatchDeps): Promise<vo
   let status = readStatus(comicDir);
   for (;;) {
     if (status.stage > LAST_STAGE) {
-      deps.log('All stages are complete.');
+      const finished = deps.handlers[status.stage];
+      if (finished) await finished({ comicDir, status, codex: deps.codex, ask: deps.ask, log: deps.log });
+      else deps.log('All stages are complete.');
       return;
     }
     deps.log(`Stage ${status.stage}: ${STAGE_NAMES[status.stage] ?? 'unknown'}`);

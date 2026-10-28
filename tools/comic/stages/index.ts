@@ -6,6 +6,7 @@ import { characterStage } from './character';
 import { panelReviewStage } from './panel_review';
 import { panelDescriptionsStage } from './panels';
 import { speechStage } from './speech';
+import { completedStage, stitchStage } from './stitch';
 
 export interface StageContext {
   comicDir: string;
@@ -42,3 +43,5 @@ stageHandlers[3] = panelReviewStage;
 stageHandlers[4] = backgroundStage;
 stageHandlers[5] = characterStage;
 stageHandlers[6] = speechStage;
+stageHandlers[7] = stitchStage;
+stageHandlers[8] = completedStage;

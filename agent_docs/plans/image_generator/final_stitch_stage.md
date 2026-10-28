@@ -1,5 +1,5 @@
 ---
-status: Not Started
+status: Done
 subtask_of: plans/image_generator/overall.md
 ---
 

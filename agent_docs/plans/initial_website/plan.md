@@ -1,5 +1,5 @@
 ---
-status: Ready for Review
+status: Done
 plan_order:
   - plans/initial_website/scaffold_astro_site_with_sample_comics.md
   - plans/initial_website/comic_permalinks_and_navigation.md

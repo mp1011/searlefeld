@@ -1,0 +1,99 @@
+{
+  "source": "agent_docs/comic_notes/situations/human.md",
+  "title": "Human Speak",
+  "panels": [
+    {
+      "width": 50,
+      "height": 50,
+      "row": 0,
+      "column": 0,
+      "background": {
+        "reference": "agent_docs/comic_notes/reference_images/location/apartment/workshop-loft-angle-1-entrance-door-open-lived_in.png",
+        "description": "Wide view of the apartment entrance, with the open door behind Ailan and Max inside facing him. Roko is visible behind Max, staring at the unexpected human.",
+        "mode": "reference"
+      },
+      "characters": [
+        {
+          "character": "ailan",
+          "action": "Enters through the open door in a convincing new human appearance and waves to his roommates.",
+          "mood": "Cheerful and eager",
+          "dialogue": "Hey gang!"
+        },
+        {
+          "character": "max",
+          "action": "Sitting on the couch, turns toward the unfamiliar human in the doorway and recoils slightly.",
+          "mood": "Confused and startled",
+          "dialogue": "A human? What are you doing here?"
+        },
+        {
+          "character": "roko",
+          "action": "Sitting on couch. Stares silently at Ailan, brow furrowed and eyes narrowed, his facial expression clearly asking, 'What is a human doing in here?'",
+          "mood": "Bewildered and suspicious",
+          "dialogue": ""
+        }
+      ]
+    },
+    {
+      "width": 50,
+      "height": 50,
+      "row": 0,
+      "column": 1,
+      "background": {
+        "reference": "agent_docs/comic_notes/reference_images/location/apartment/workshop-loft-angle-2-monitor-wall-lived_in.png",
+        "description": "Medium view just inside the apartment entrance, continuing the doorway conversation with Ailan and Max in front and Roko clearly visible behind Max.",
+        "mode": "reference"
+      },
+      "characters": [
+        {
+          "character": "ailan",
+          "action": "Gestures proudly at his new human appearance, presenting himself for inspection. He rolls up one sleeve to show a robot arm but otherwise looks fully human",
+          "mood": "Proud and amused",
+          "dialogue": "No, it's me, Ailan! Check out my new look!"
+        },
+        {
+          "character": "max",
+          "action": "Standing up to inspect Ailan, relaxing as recognition dawns.",
+          "mood": "Relieved and impressed",
+          "dialogue": "Well clip my papers! You sure fooled me!"
+        },
+        {
+          "character": "roko",
+          "action": "Keeps watching Ailan silently from behind Max, brow still furrowed and eyes narrowed. Even as Max relaxes, Roko's facial expression continues to ask, 'What is a human doing in here?'",
+          "mood": "Bewildered and suspicious",
+          "dialogue": ""
+        }
+      ]
+    },
+    {
+      "width": 100,
+      "height": 50,
+      "row": 1,
+      "column": 0,
+      "background": {
+        "reference": "agent_docs/comic_notes/reference_images/location/apartment/workshop-loft-angle-2-monitor-wall-lived_in.png",
+        "description": "Wide view of the apartment couch area. Ailan stands on the left performing for his roommates; Roko is beside the couch on the right, suddenly scrutinizing him. Leave room for Ailan's longer speech followed by Roko's reply, reading left to right.",
+        "mode": "reference"
+      },
+      "characters": [
+        {
+          "character": "ailan",
+          "action": "Adopts an exaggerated video-host pose, smiling broadly at an imaginary camera and delivering his practiced greeting.",
+          "mood": "Enthusiastic and self-satisfied",
+          "dialogue": "I've been practicing my human speak! \"Welcome to my YouTube channel! Be sure to like and subscribe!\""
+        },
+        {
+          "character": "max",
+          "action": "Standing",
+          "mood": "happy",
+          "dialogue": ""
+        },
+        {
+          "character": "roko",
+          "action": "Suddenly stops what he is doing, narrows his gaze at Ailan's human appearance, and raises one questioning finger as though reassessing an old debt.",
+          "mood": "Skeptical and quietly menacing",
+          "dialogue": "Wait a minute... did you contribute to my creation?"
+        }
+      ]
+    }
+  ]
+}

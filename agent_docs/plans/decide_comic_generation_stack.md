@@ -1,5 +1,5 @@
 ---
-status: Ready for Review
+status: Done
 plan_order:
   - plans/image_generator/build_reference_library_and_prompt_assistant.md
   - plans/image_generator/build_image_generation_command.md

@@ -13,6 +13,8 @@ export const BACKGROUND_STAGE = 4;
 /** Total comic area in pixels; panel width/height percentages are applied to this. */
 export const COMIC_WIDTH = 800;
 export const COMIC_HEIGHT = 800;
+/** Pixels of empty space between adjacent panels (and twice the outer border) in the stitched comic. */
+export const GUTTER = 8;
 
 export type BackgroundPlan = 'copy' | 'reference' | 'description' | 'crop' | 'none';
 
