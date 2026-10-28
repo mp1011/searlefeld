@@ -38,12 +38,12 @@ describe('dispatch', () => {
   });
 
   it('persists the status a handler returns and continues with the next stage', async () => {
-    const dir = newComic(2, [1]);
-    const handlers = { ...stageHandlers, 2: async () => ({ stage: 3, completed: [1, 2] }) };
+    const dir = newComic(4, [1, 2, 3]);
+    const handlers = { ...stageHandlers, 4: async () => ({ stage: 5, completed: [1, 2, 3, 4] }) };
     const log: string[] = [];
     await dispatch(dir, deps(handlers, log));
-    expect(readStatus(dir).stage).toBe(3);
-    expect(log.join('\n')).toMatch(/Stage 3 \(Panel Review\) is not implemented yet/);
+    expect(readStatus(dir).stage).toBe(5);
+    expect(log.join('\n')).toMatch(/Stage 5 \(Character Generation\) is not implemented yet/);
   });
 
   it('prints "not implemented yet" and exits cleanly for unbuilt stages', async () => {

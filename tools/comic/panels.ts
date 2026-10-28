@@ -125,3 +125,33 @@ export function loadPanels(text: string): Panels {
   if (errors.length > 0) throw new Error(`Invalid panels.json:\n- ${errors.join('\n- ')}`);
   return JSON.parse(text) as Panels;
 }
+
+const WIDTH_TOLERANCE = 0.5;
+
+/** Layout errors for a syntactically valid Panels: duplicate cells and rows whose widths don't fill 100%. */
+export function validateLayout(panels: Panels): string[] {
+  const errors: string[] = [];
+  const cells = new Map<string, number>();
+  const rowWidths = new Map<number, number>();
+  panels.panels.forEach((p, i) => {
+    const cell = `row ${p.row}, column ${p.column}`;
+    const other = cells.get(cell);
+    if (other !== undefined) errors.push(`panels.panels[${i}] overlaps panels.panels[${other}] (both at ${cell})`);
+    else cells.set(cell, i);
+    rowWidths.set(p.row, (rowWidths.get(p.row) ?? 0) + p.width);
+  });
+  for (const [row, sum] of rowWidths) {
+    if (Math.abs(sum - 100) > WIDTH_TOLERANCE) errors.push(`panels in row ${row} have widths summing to ${sum}%, expected 100%`);
+  }
+  return errors;
+}
+
+/** Errors for every background.reference that `exists` rejects. */
+export function validateReferences(panels: Panels, exists: (reference: string) => boolean): string[] {
+  const errors: string[] = [];
+  panels.panels.forEach((p, i) => {
+    const ref = p.background.reference?.trim();
+    if (ref && !exists(ref)) errors.push(`panels.panels[${i}].background.reference does not exist: ${ref}`);
+  });
+  return errors;
+}

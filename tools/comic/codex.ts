@@ -46,7 +46,7 @@ export function createCodex(command = 'codex', baseArgs: string[] = []): Codex {
   return {
     async runNonInteractive(comicDir, prompt) {
       const promptPath = logPrompt(comicDir, prompt);
-      const result = await run(command, [...baseArgs, 'exec', '-'], { input: prompt, capture: true });
+      const result = await run(command, [...baseArgs, 'exec', '-C', comicDir, '-s', 'workspace-write', '--skip-git-repo-check', '-'], { input: prompt, capture: true });
       writeFileAtomic(promptPath.replace('.prompt.md', '.output.txt'), result.output);
       return result;
     },

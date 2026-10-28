@@ -8,6 +8,8 @@ export interface Status {
   /** The stage the comic is up to (1-7), or LAST_STAGE + 1 when finished. */
   stage: number;
   completed: number[];
+  /** Per-panel progress for the review stages: stage number -> accepted 0-based panel indexes. */
+  accepted?: Record<string, number[]>;
 }
 
 export function statusPath(comicDir: string): string {
@@ -26,7 +28,9 @@ export function readStatus(comicDir: string): Status {
   if (!Number.isInteger(s?.stage) || !Array.isArray(s?.completed)) {
     throw new Error(`${path} must contain an integer "stage" and a "completed" array.`);
   }
-  return { stage: s.stage as number, completed: s.completed as number[] };
+  const status: Status = { stage: s.stage as number, completed: s.completed as number[] };
+  if (s.accepted) status.accepted = s.accepted;
+  return status;
 }
 
 export function writeStatus(comicDir: string, status: Status): void {

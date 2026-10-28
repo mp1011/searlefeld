@@ -20,7 +20,7 @@ describe('createCodex', () => {
     writeFileSync(stub, STUB);
     const result = await createCodex('node', [stub]).runNonInteractive(dir, 'draw a cat');
     expect(result.exitCode).toBe(3);
-    expect(result.output).toContain('args=exec,- prompt=draw a cat');
+    expect(result.output).toContain(`args=exec,-C,${dir},-s,workspace-write,--skip-git-repo-check,- prompt=draw a cat`);
     expect(readFileSync(join(dir, 'logs', '000.prompt.md'), 'utf8')).toBe('draw a cat');
   });
 });

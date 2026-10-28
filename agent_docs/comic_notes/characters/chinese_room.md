@@ -11,6 +11,7 @@ Chinese Room is unique in that he's the only one of the main cast without a spec
 
 ## Physical Appearance
 - He appears as a monitor on a wall, behind which is assumed to be the titular room.
+- His monitor is his face and communication interface. He does not double as a television, presentation screen, or general-purpose display; never use him to show diagrams, videos, or another character's visual explanation.
 - the interior is rarely seen, although sometimes the person inside may take part in adventures.
 
 ## Humor By Omission

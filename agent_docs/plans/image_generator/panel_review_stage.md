@@ -1,5 +1,5 @@
 ---
-status: Not Started
+status: Ready for Review
 subtask_of: plans/image_generator/overall.md
 ---
 

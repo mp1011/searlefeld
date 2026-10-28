@@ -2,9 +2,20 @@ import { createInterface } from 'node:readline/promises';
 
 export type Ask = (question: string) => Promise<string>;
 
+/**
+ * One readline interface per question: a long-lived one keeps reading stdin while an interactive
+ * child (Codex) owns the terminal, and echoes its terminal replies back as phantom keypresses.
+ */
 export function createAsk(): { ask: Ask; close: () => void } {
-  const rl = createInterface({ input: process.stdin, output: process.stdout });
-  return { ask: (q) => rl.question(q), close: () => rl.close() };
+  const ask: Ask = async (q) => {
+    const rl = createInterface({ input: process.stdin, output: process.stdout });
+    try {
+      return await rl.question(q);
+    } finally {
+      rl.close();
+    }
+  };
+  return { ask, close: () => process.stdin.pause() };
 }
 
 /** Shows numbered options and returns the chosen 0-based index (re-asks on bad input). */

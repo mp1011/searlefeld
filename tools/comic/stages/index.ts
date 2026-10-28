@@ -1,6 +1,9 @@
 import type { Codex } from '../codex';
 import type { Ask } from '../menu';
 import type { Status } from '../status';
+import { backgroundStage } from './background';
+import { panelReviewStage } from './panel_review';
+import { panelDescriptionsStage } from './panels';
 
 export interface StageContext {
   comicDir: string;
@@ -32,3 +35,6 @@ export const notImplemented = (stage: number): StageHandler => async (ctx) => {
 export const stageHandlers: Record<number, StageHandler> = Object.fromEntries(
   [2, 3, 4, 5, 6, 7].map((n) => [n, notImplemented(n)]),
 );
+stageHandlers[2] = panelDescriptionsStage;
+stageHandlers[3] = panelReviewStage;
+stageHandlers[4] = backgroundStage;
