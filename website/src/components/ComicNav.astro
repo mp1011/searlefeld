@@ -6,20 +6,20 @@ const t = navTargets(numbers, current);
 const others = numbers.filter((n) => n !== current);
 const randomFallback = others.length ? others[0] : current;
 const buttons = [
-  { key: 'first', label: '|<<', name: 'First comic', target: t.first },
-  { key: 'prev', label: '<', name: 'Previous comic', target: t.prev },
-  { key: 'next', label: '>', name: 'Next comic', target: t.next },
-  { key: 'latest', label: '>>|', name: 'Latest comic', target: t.latest },
+  { key: 'first', label: '|<<', word: 'First', name: 'First comic', target: t.first },
+  { key: 'prev', label: '<', word: 'Prev', name: 'Previous comic', target: t.prev },
+  { key: 'next', label: '>', word: 'Next', name: 'Next comic', target: t.next },
+  { key: 'latest', label: '>>|', word: 'Latest', name: 'Latest comic', target: t.latest },
 ];
 ---
 <nav class="comic-nav" aria-label="Comic navigation" data-numbers={JSON.stringify(numbers)} data-current={current}>
   {buttons.slice(0, 2).map((b) => b.target === null
-    ? <span class="disabled" aria-disabled="true" aria-label={b.name}>{b.label}</span>
-    : <a href={`/comic/${b.target}`} aria-label={b.name} data-nav={b.key}>{b.label}</a>)}
-  <a href={`/comic/${randomFallback}`} aria-label="Random comic" data-nav="random">?</a>
+    ? <span class="disabled" aria-disabled="true" aria-label={b.name}><span aria-hidden="true">{b.label}</span><span class="word">{b.word}</span></span>
+    : <a href={`/comic/${b.target}`} aria-label={b.name} data-nav={b.key}><span aria-hidden="true">{b.label}</span><span class="word">{b.word}</span></a>)}
+  <a href={`/comic/${randomFallback}`} aria-label="Random comic" data-nav="random" class="random"><span aria-hidden="true">?</span><span class="word">Random</span></a>
   {buttons.slice(2).map((b) => b.target === null
-    ? <span class="disabled" aria-disabled="true" aria-label={b.name}>{b.label}</span>
-    : <a href={`/comic/${b.target}`} aria-label={b.name} data-nav={b.key}>{b.label}</a>)}
+    ? <span class="disabled" aria-disabled="true" aria-label={b.name}><span class="word">{b.word}</span><span aria-hidden="true">{b.label}</span></span>
+    : <a href={`/comic/${b.target}`} aria-label={b.name} data-nav={b.key}><span class="word">{b.word}</span><span aria-hidden="true">{b.label}</span></a>)}
 </nav>
 <script>
   import { randomExcluding } from '../lib/comics';
@@ -43,10 +43,16 @@ const buttons = [
   }
 </script>
 <style>
-  .comic-nav { display: flex; justify-content: center; gap: 0.5rem; margin: 1rem 0; }
+  .comic-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
   .comic-nav a, .comic-nav .disabled {
-    min-width: 3rem; padding: 0.4rem 0.8rem; text-align: center;
-    border: 1px solid var(--border); border-radius: 4px; text-decoration: none; font-weight: 600;
+    display: inline-flex; gap: 0.4em; align-items: center; justify-content: center; min-width: 2.75rem; padding: 0.35rem 0.75rem;
+    font-family: var(--mono); font-size: 0.85rem; font-weight: 600; text-decoration: none;
+    color: var(--accent-text); border: 1.5px solid var(--accent); transition: background-color 0.1s, color 0.1s;
   }
-  .comic-nav .disabled { color: var(--muted); opacity: 0.5; cursor: not-allowed; }
+  .comic-nav a:hover { background: var(--accent-text); border-color: var(--accent-text); color: var(--accent-ink); }
+  .comic-nav .random { color: var(--sage); border-color: var(--sage); }
+  .comic-nav .random:hover { background: var(--sage); border-color: var(--sage); color: var(--accent-ink); }
+  .comic-nav .disabled { color: var(--muted); border-color: var(--line); cursor: not-allowed; }
+  @media (max-width: 34rem) { .comic-nav .word { display: none; } }
+  @media (prefers-reduced-motion: reduce) { .comic-nav a { transition: none; } }
 </style>

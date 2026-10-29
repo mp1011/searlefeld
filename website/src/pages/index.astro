@@ -11,14 +11,17 @@ const numbers = sortedComics(all).map((c) => c.data.comicNumber);
 if (!comic) throw new Error('No comics found');
 ---
 <BaseLayout>
-  <ComicNav numbers={numbers} current={comic.data.comicNumber} />
   <ComicViewer
+    number={comic.data.comicNumber}
     title={comic.data.title}
     image={comic.data.image}
     altText={comic.data.altText}
     hoverText={comic.data.hoverText}
+    publishDate={comic.data.publishDate}
     transcript={comic.body}
-  />
-  <ComicNav numbers={numbers} current={comic.data.comicNumber} />
+  >
+    <ComicNav slot="nav" numbers={numbers} current={comic.data.comicNumber} />
+    <ComicNav numbers={numbers} current={comic.data.comicNumber} />
+  </ComicViewer>
 </BaseLayout>
 

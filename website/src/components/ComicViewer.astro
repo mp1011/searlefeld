@@ -1,24 +1,43 @@
 ---
+import { formatPublishDate } from '../lib/dates';
+import { transcriptLines } from '../lib/transcript';
 interface Props {
+  number: number;
   title: string;
   image: string;
   altText: string;
   hoverText?: string;
+  publishDate?: Date;
   transcript?: string;
 }
-const { title, image, altText, hoverText, transcript } = Astro.props;
-const paragraphs = (transcript ?? '').split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
+const { number, title, image, altText, hoverText, publishDate, transcript } = Astro.props;
+const lines = transcriptLines(transcript ?? '');
 ---
 <article class="comic">
-  <h1>{title}</h1>
-  <img src={image} alt={altText} title={hoverText} />
-  <details class="transcript">
-    <summary>Transcript</summary>
-    {paragraphs.map((p) => <p>{p}</p>)}
-  </details>
+  <header>
+    <p class="eyebrow">Comic #{number}{publishDate && <> · <time datetime={publishDate.toISOString().slice(0, 10)}>{formatPublishDate(publishDate)}</time></>}</p>
+    <h1>{title}</h1>
+  </header>
+  <slot name="nav" />
+  <figure class="strip"><img src={image} alt={altText} title={hoverText} /></figure>
+  <slot />
+  {lines.length > 0 && (
+    <details class="transcript">
+      <summary>Transcript</summary>
+      {lines.map((l) => <p>{l.speaker && <span class="speaker">{l.speaker}</span>} {l.text}</p>)}
+    </details>
+  )}
 </article>
 <style>
-  .comic { text-align: center; }
-  .transcript { text-align: left; margin-top: 1rem; }
-  summary { cursor: pointer; font-weight: 600; }
+  .comic { display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
+  header { display: grid; gap: 0.2rem; }
+  .eyebrow, h1 { margin: 0; }
+  h1 { font-size: clamp(1.6rem, 4vw, 2.1rem); }
+  .strip { margin: 0.5rem 0; width: 100%; max-width: 50rem; padding: 0.5rem; background: var(--surface); border: 1px solid var(--line); box-shadow: 0 0 0 5px var(--bg), 0 0 0 6px var(--line); }
+  .strip img { display: block; width: 100%; }
+  .transcript { width: 100%; max-width: 40rem; text-align: left; border-left: 3px solid var(--accent); padding: 0.2rem 0 0.2rem 1rem; }
+  summary { cursor: pointer; font-family: var(--mono); font-weight: 600; color: var(--accent-text); }
+  .transcript p { margin: 0.5rem 0; }
+  .speaker { font-family: var(--mono); font-weight: 600; font-size: 0.9em; color: var(--accent-text); }
+  .speaker::after { content: ':'; }
 </style>

@@ -1,18 +1,27 @@
 ---
 import SiteBanner from './SiteBanner.astro';
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/archive', label: 'Archive' },
+  { href: '/about', label: 'About' },
+];
 ---
 <SiteBanner />
 <header class="site-header">
-  <a class="site-name" href="/">Searlefeld</a>
   <nav aria-label="Main">
-    <a href="/">Home</a>
-    <a href="/archive" aria-current={Astro.url.pathname.replace(/\/$/, '') === '/archive' ? 'page' : undefined}>Archive</a>
-    <a href="/about">About</a>
+    {links.map((l) => <a href={l.href} aria-current={path === l.href ? 'page' : undefined}>{l.label}</a>)}
+    <a class="rss" href="/rss.xml">RSS</a>
   </nav>
 </header>
 <style>
-  .site-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.5rem; padding: 1rem; border-bottom: 1px solid var(--border); }
-  .site-name { font-size: 1.5rem; font-weight: 700; color: var(--fg); text-decoration: none; }
-  nav { display: flex; gap: 1rem; }
-  a[aria-current="page"] { font-weight: 700; text-decoration-thickness: 0.15em; }
+  .site-header { background: var(--surface); border-block: 1px solid var(--line); }
+  nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 1.5rem; padding: 0.6rem 1rem; font-family: var(--mono); font-size: 0.9rem; }
+  a { color: var(--fg); text-decoration: none; }
+  a::before { content: '> '; color: var(--line); }
+  a:hover { color: var(--accent-text); }
+  a[aria-current="page"] { color: var(--accent-text); font-weight: 600; }
+  a[aria-current="page"]::before, a:hover::before { color: var(--accent); }
+  .rss { margin-left: auto; }
+  @media (max-width: 30rem) { nav { gap: 0.25rem 1rem; } }
 </style>

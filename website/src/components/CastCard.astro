@@ -21,9 +21,9 @@ const { character, member, comics } = Astro.props;
   )}
 </article>
 <style>
-  .cast-card { min-width: 0; padding: 1rem; border: 1px solid var(--border); border-radius: 0.5rem; }
-  h2 { margin-top: 0; }
-  img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; }
-  h3 { font-size: 1rem; }
-  ul { padding-left: 1.25rem; }
+  .cast-card { min-width: 0; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--line); }
+  h2 { margin: 0 0 0.75rem; }
+  img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: var(--bg); }
+  h3 { margin: 1rem 0 0.25rem; font-family: var(--mono); font-size: 0.8rem; font-weight: 600; color: var(--sage); }
+  ul { margin: 0; padding-left: 1.25rem; }
 </style>

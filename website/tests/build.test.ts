@@ -2,6 +2,7 @@ import { execSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { cast } from '../src/lib/cast';
 import { banners, wideBanners } from '../src/lib/banner';
+import { darkTheme, lightTheme } from '../src/lib/theme';
 import { runInNewContext } from 'node:vm';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { describe, expect, it } from 'vitest';
@@ -120,6 +121,33 @@ describe('build output', () => {
     const header = html.match(/<header\b[\s\S]*?<\/header>/)?.[0];
     expect(header).toMatch(/<a\b[^>]*href="\/archive"[^>]*aria-current="page"[^>]*>Archive<\/a>/);
     expect(readFileSync('dist/index.html', 'utf8')).not.toMatch(/href="\/archive"[^>]*aria-current="page"/);
+  });
+
+  it('styles every page with the warm theme and the self-hosted fonts', () => {
+    for (const file of ['index.html', '404.html', 'about/index.html', 'archive/index.html', 'comic/1/index.html']) {
+      const html = readFileSync(`dist/${file}`, 'utf8');
+      const linked = [...html.matchAll(/<link\b[^>]*rel="stylesheet"[^>]*href="([^"]+)"/g)].map((m) => readFileSync(`dist${m[1]}`, 'utf8'));
+      const inline = [...html.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/g)].map((m) => m[1]);
+      const css = [...linked, ...inline].join('\n');
+      expect(css).toMatch(new RegExp(String.raw`--bg:\s*${lightTheme.bg}`));
+      expect(css).toMatch(new RegExp(String.raw`--bg:\s*${darkTheme.bg}`));
+      for (const family of ['Fredoka', 'Nunito', 'IBM Plex Mono']) {
+        const face = css.match(new RegExp(String.raw`@font-face\s*{[^}]*font-family:\s*['"]?${family}['"]?[^}]*}`))?.[0];
+        expect(face, `${family} @font-face in ${file}`).toBeDefined();
+        const url = face!.match(/url\(([^)]+\.woff2)\)/)?.[1];
+        expect(url && existsSync(`dist${url}`), `${family} woff2 shipped`).toBe(true);
+      }
+    }
+  });
+
+  it('labels the comic with an eyebrow, speaker-tagged transcript and worded nav buttons', () => {
+    const html = readFileSync('dist/index.html', 'utf8');
+    const article = html.match(/<article\b[^>]*class="comic[^"]*"[^>]*>([\s\S]*?)<\/article>/)?.[1] ?? '';
+    expect(article).toMatch(/Comic #2/);
+    expect(article).toMatch(/<h1\b[^>]*>More Human than Human<\/h1>/);
+    expect(article).toMatch(/<[a-z]+\b[^>]*class="speaker[^"]*"[^>]*>Ailan<\/[a-z]+>\s*Hey gang!/);
+    const nav = html.match(/<nav\b[^>]*class="comic-nav[^"]*"[^>]*>([\s\S]*?)<\/nav>/)?.[1] ?? '';
+    for (const word of ['First', 'Prev', 'Random', 'Next', 'Latest']) expect(nav).toContain(word);
   });
 
   it('emits a 404 page linking home', () => {

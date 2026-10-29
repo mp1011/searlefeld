@@ -16,13 +16,16 @@ export async function getStaticPaths() {
 const { comic, numbers } = Astro.props;
 ---
 <BaseLayout comic={comic}>
-  <ComicNav numbers={numbers} current={comic.data.comicNumber} />
   <ComicViewer
+    number={comic.data.comicNumber}
     title={comic.data.title}
     image={comic.data.image}
     altText={comic.data.altText}
     hoverText={comic.data.hoverText}
+    publishDate={comic.data.publishDate}
     transcript={comic.body}
-  />
-  <ComicNav numbers={numbers} current={comic.data.comicNumber} />
+  >
+    <ComicNav slot="nav" numbers={numbers} current={comic.data.comicNumber} />
+    <ComicNav numbers={numbers} current={comic.data.comicNumber} />
+  </ComicViewer>
 </BaseLayout>

@@ -59,6 +59,7 @@ Do **not** read docs from unrelated areas. Match your task to one of the three m
 | Where is a file / what does it do? | `agent_docs/02_project_structure.md` |
 | Characters, story & environment notes | `agent_docs/comic_notes/README.md` (`characters/`, `situations/`, `reference_images/`) |
 | Website architecture & tech stack | `agent_docs/deep_dives/website_tech_stack.md` |
+| Website colors, fonts, page styling | `agent_docs/deep_dives/website_visual_style.md` |
 | Image Creator pipeline & tech stack | `agent_docs/plans/image_generator/overall.md` |
 
 For any image containing a cast member, consult the [current character reference table](03_image_gen.md#character-references). Visually inspect and supply that character's turnaround and facial-expression sheet as actual image inputs, together with the shared height reference. Select Ailan's intact human presentation by default; use his exposed-robot turnaround when the scene calls for visible machinery. Use the expression sheets to match the requested mood while preserving identity.

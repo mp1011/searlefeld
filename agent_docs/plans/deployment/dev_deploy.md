@@ -1,5 +1,5 @@
 ---
-status: Not Started
+status: In Progress
 ---
 
 # GOAL
