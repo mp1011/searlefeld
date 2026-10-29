@@ -1,0 +1,18 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "date": "2026-10-28",
+  "asset": "ailan/ailan-robot-turnaround-v1.png",
+  "prompt": "Use case: identity-preserve. Create a landscape production turnaround titled 'AILAN — EXPOSED ROBOT', three full-body orthographic views labeled FRONT, SIDE, BACK on warm ivory. Image 1 defines Ailan's existing mechanical design and human head. Image 2 controls scale only; do not draw other cast members. Show the SAME Ailan with all clothing and shoes removed so his entire robotic body from the neck down is unobstructed, including hands, feet, torso, back and joints. Keep his familiar intact human-looking head, tousled dark brown hair, brown eyes, warm skin and stubble; do not replace his head with a different robot face. Reuse the precise reference's graphite and brushed silver segmented armor, bronze joint rings, dark neck struts, shoulder bearings, articulated fingers, segmented abdomen and spine, hips, mechanical thighs, knees, shins and ankles. Develop modest matching mechanical feet beneath removed sneakers. No flesh torso, no genitals, no fabric remnants, no cutaways or exploded parts. 175 cm adult proportions; consistent anatomy across views. Preserve all other in-frame mechanical design details. Polished inked 2D comic style and warm muted rendering matching Image 1. Full head and feet within frame, equal scale and aligned floor.",
+  "inputs": [
+    {
+      "path": "../ailan/ailan-turnaround-v1.png",
+      "role": "identity reference"
+    },
+    {
+      "path": "../cast-height-reference-front-v2.png",
+      "role": "scale reference; omit other cast"
+    }
+  ],
+  "review": "Visually inspected generated result against source: identity, complete framing, requested presentation or eight labeled moods. Opaque reference-sheet background."
+}

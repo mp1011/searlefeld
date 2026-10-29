@@ -1,0 +1,18 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "date": "2026-10-28",
+  "asset": "max/max-expressions-v1.png",
+  "prompt": "Use case: illustration-story. Create landscape facial-expression production sheet titled 'MAX — EXPRESSIONS', eight head-and-shoulder portraits in a four-column two-row grid, warm ivory. Image 1 controls Max identity and every design detail; Image 2 controls scale only, no other cast. Exact labels reading order: 'Neutral', 'Delighted', 'Proud', 'Determined', 'Skeptical', 'Surprised', 'Disgusted', 'Concerned'. Clearly distinct brows, eyes and mouths for each: attentive soft smile; exuberant open laugh; satisfied confident smile; focused narrowed eyes; one raised brow; wide eyes round mouth; wrinkled disapproving expression (her hatred of staples); sympathetic raised inner brows. Preserve feminine-coded adult robot Max, cream face and armor, orange head crest and cheek accents, round dark/orange ear housings, exposed black mechanical neck, colorful linked-paperclip necklace, orange and blue paperclip earrings on the same sides as reference. Preserve shell seams, neck struts, shoulder plates and all other in-frame identity details in every cell. Do not add hair, human skin, human ears or new accessories. Inked polished 2D comic style, warm muted palette and soft shading matching reference. Consistent head scale, full crest and both earrings visible, no cropped jewelry, no speech bubbles or props. Adult proportions, 183 cm including crest.",
+  "inputs": [
+    {
+      "path": "../max/max-turnaround-v1.png",
+      "role": "identity reference"
+    },
+    {
+      "path": "../cast-height-reference-front-v2.png",
+      "role": "scale reference; omit other cast"
+    }
+  ],
+  "review": "Visually inspected generated result against source: identity, complete framing, requested presentation or eight labeled moods. Opaque reference-sheet background."
+}

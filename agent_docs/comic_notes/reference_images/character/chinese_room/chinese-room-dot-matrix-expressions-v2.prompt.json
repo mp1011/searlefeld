@@ -1,0 +1,18 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "date": "2026-10-28",
+  "asset": "chinese_room/chinese-room-dot-matrix-expressions-v2.png",
+  "prompt": "Use case: illustration-story. Create landscape reference sheet titled 'CHINESE ROOM — EXPRESSIONS'. Image 1 is identity authority: preserve exact aged dark metal wall-monitor bezel, corner screws, scratches, bottom-left small plate, bottom-right controls, cream and pale sage horizontal tractor-feed paper display with perforations at both sides, black dot-matrix face. Image 2 controls physical scale only; no other characters. Eight identical straight-on complete 4:3 monitors in four columns by two rows on warm ivory, each fully framed with generous gutters. Only change the dot-matrix facial marks inside each screen. Exact labels reading order: 'Listening', 'Skeptical', 'Surprised', 'Reassuring', 'Amused', 'Concerned', 'Puzzled', 'Deadpan'. Listening friendly small smile and upright oval eyes; Skeptical asymmetric brow half-lidded eyes flat mouth; Surprised raised brows wide oval eyes round O mouth; Reassuring gently tilted brows soft smile; Amused curved closed eyes broad smile; Concerned raised inner brows small frown; Puzzled uneven brows and small skewed mouth; Deadpan level brows half-closed eyes straight mouth. Draw every eye, brow and mouth entirely as round black printer dots matching input, not smooth strokes or emojis. Calm understated character. All screens retain same paper and identical housing, no displays of diagrams, no human operator, no robot body, no speech bubbles. Preserve all other in-frame identity details. 90 by 67.5 cm monitor design. Same polished inked 2D warm comic style as reference.",
+  "inputs": [
+    {
+      "path": "../chinese_room/chinese-room-dot-matrix-expressions-v1.png",
+      "role": "identity reference"
+    },
+    {
+      "path": "../cast-height-reference-front-v2.png",
+      "role": "scale reference; omit other cast"
+    }
+  ],
+  "review": "Visually inspected generated result against source: identity, complete framing, requested presentation or eight labeled moods. Opaque reference-sheet background."
+}

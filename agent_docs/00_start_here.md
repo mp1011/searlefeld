@@ -61,6 +61,8 @@ Do **not** read docs from unrelated areas. Match your task to one of the three m
 | Website architecture & tech stack | `agent_docs/deep_dives/website_tech_stack.md` |
 | Image Creator pipeline & tech stack | `agent_docs/plans/image_generator/overall.md` |
 
+For any image containing a cast member, consult the [current character reference table](03_image_gen.md#character-references). Visually inspect and supply that character's turnaround and facial-expression sheet as actual image inputs, together with the shared height reference. Select Ailan's intact human presentation by default; use his exposed-robot turnaround when the scene calls for visible machinery. Use the expression sheets to match the requested mood while preserving identity.
+
 ## How to run things
 
 - Install: `cd website && npm install`

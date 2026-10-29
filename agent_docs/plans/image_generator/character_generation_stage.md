@@ -10,7 +10,7 @@ For each panel, Codex adds the panel's characters (no speech) onto its approved 
 
 ## Context
 - Parent: `agent_docs/plans/image_generator/overall.md`, Stage 5. Depends on `background_generation_stage.md` (shared review loop, pixel size, verified Codex image call).
-- `overall.md` leaves the character prompt as "generate prompt based on contents of panels.json". For a reliable style, also pass each character's reference sheet from `agent_docs/comic_notes/reference_images/character/` (`roko-turnaround-v1.png`, `max-turnaround-v1.png`, `ailan-turnaround-v1.png`, `chinese-room-dot-matrix-expressions-v1.png`) and a short look summary from `agent_docs/comic_notes/characters/`. Characters with no reference are described from text only.
+- For character generation, follow [the current image guide](../../03_image_gen.md#character-references): inspect and pass each visible character's appropriate turnaround, facial-expression sheet and shared height reference, plus the relevant bio summary. Use Ailan's intact-human turnaround by default and his exposed-robot sheet when the scene calls for machinery. Chinese Room uses the eight-mood dot-matrix monitor sheet. Resolve current per-character paths from the guide rather than historical flat filenames. Characters with no reference are described from text only.
 - Map names to references in one small table that is easy to extend, not in the prompt code.
 
 ## Requirements

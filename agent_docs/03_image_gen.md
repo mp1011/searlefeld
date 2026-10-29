@@ -37,13 +37,18 @@ If a script and reference disagree on a material visual detail, follow the user'
 
 Paths here are relative to `agent_docs/comic_notes/reference_images/`.
 
+Before generating or editing a cast member, visually inspect both the appropriate turnaround and their facial-expression sheet below, then attach both as actual image inputs alongside the shared scale reference. Use the turnaround for identity, body and clothing state, and the expression sheet for eyes, brows, mouth and mood. For Chinese Room, the expression sheet also supplies his monitor identity. If the exact mood is absent, derive it from the closest expressions without changing the character design. Do not rely solely on filenames, bios or the historical cutaway sheet.
+
 | Character | Primary visual reference | Use |
 |---|---|---|
-| Roko | `character/roko-turnaround-v1.png` | Body, silhouette, materials, proportions and views; read `characters/roko.md` for behavior |
-| Max | `character/max-turnaround-v1.png` | Body and paperclip accessories; read `characters/max.md` |
-| Ailan | `character/ailan-turnaround-v1.png` | Human presentation and robotic details; read `characters/ailan.md` |
-| Chinese Room | `character/chinese-room-dot-matrix-expressions-v1.png` | Monitor-face rendering and expressions; read `characters/chinese_room.md` |
-| Group | `character/cast-portrait-v1.png` | Supporting ensemble appearance; individual sheets remain primary for each design |
+| Roko | `character/roko/roko-turnaround-v1.png`; `character/roko/roko-expressions-v1.png` | Body, silhouette, materials and eight facial moods; read `characters/roko.md` |
+| Max | `character/max/max-turnaround-v1.png`; `character/max/max-expressions-v1.png` | Body, paperclip accessories and eight facial moods; read `characters/max.md` |
+| Ailan, human presentation (default) | `character/ailan/ailan-human-turnaround-v1.png`; `character/ailan/ailan-expressions-v1.png` | Intact street clothes and natural-looking exposed skin; eight facial moods; read `characters/ailan.md` |
+| Ailan, exposed robot | `character/ailan/ailan-robot-turnaround-v1.png` | Unobstructed mechanical body beneath his familiar human-looking head |
+| Chinese Room | `character/chinese_room/chinese-room-dot-matrix-expressions-v2.png` | Eight dot-matrix facial moods on his established monitor; read `characters/chinese_room.md` |
+| Group scale | `character/cast-height-reference-front-v2.png` | Relative sizes only; individual sheets control design and presentation |
+
+Ailan's original `character/ailan/ailan-turnaround-v1.png` is retained as a historical clothing-cutaway/mechanical source. Do not copy its exposed machinery into his default human presentation. His expression sheet controls facial acting in either state; pair it with the selected turnaround for clothing and body. The exposed-robot sheet retains his human-looking head deliberately. Chinese Room's original three-expression v1 is retained for comparison. New reference assets have adjacent `.prompt.json` records with exact generation prompts and input roles. These additions are ready for user review; existing originals remain available.
 
 Chinese Room's visible presence is the wall monitor. Do not invent a fourth free-standing robot body. The human and room behind the wall stay unseen unless the requested scene explicitly reveals them. Chinese Room does not understand Chinese; responses come from a symbol book. The Chinese calligraphy is a chosen decoration, not evidence of fluency. A blank blue monitor in an environment reference is a background placeholder: when Chinese Room is acting in a scene, use the expression reference to render its face on that same monitor.
 

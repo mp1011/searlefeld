@@ -1,0 +1,18 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "date": "2026-10-28",
+  "asset": "ailan/ailan-human-turnaround-v1.png",
+  "prompt": "Use case: identity-preserve. Create a landscape production character turnaround sheet titled 'AILAN — HUMAN PRESENTATION', with three full-body orthographic views labeled FRONT, SIDE, BACK, on warm ivory. Image 1 is Ailan's identity and clothing design; Image 2 is scale reference only, do not include other characters. Preserve the identical young adult man's face, tousled wavy dark brown hair, warm skin, brown eyes, stubble, adult build and 175 cm total height. He must pass completely for human: intact opaque green-and-gold plaid overshirt with sleeves rolled to forearms, intact cream T-shirt covering abdomen, intact blue jeans covering legs, same cream sneakers. All exposed neck, forearms and hands are natural-looking human skin. No visible robot parts, no cutaways, no see-through cloth, no holes or circuitry anywhere. Preserve plaid, pockets, cuffs, seams, laces and all other in-frame identity/clothing details while repairing the reference's cutaway clothing. Match polished inked 2D comic linework, warm muted colors and rendering. Same character and proportions across all three views; full heads and shoes inside frame.",
+  "inputs": [
+    {
+      "path": "../ailan/ailan-turnaround-v1.png",
+      "role": "identity reference"
+    },
+    {
+      "path": "../cast-height-reference-front-v2.png",
+      "role": "scale reference; omit other cast"
+    }
+  ],
+  "review": "Visually inspected generated result against source: identity, complete framing, requested presentation or eight labeled moods. Opaque reference-sheet background."
+}

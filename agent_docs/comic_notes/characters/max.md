@@ -1,5 +1,7 @@
 # MAX
 
+For image work, consult and attach the [turnaround](../reference_images/character/max/max-turnaround-v1.png) and [facial-expression sheet](../reference_images/character/max/max-expressions-v1.png), following the [image guide](../../03_image_gen.md#character-references). Preserve her paperclip jewelry across moods.
+
 The Paperclip Maximizer, the AI with a singular focus on making as many paperclips as possible. She's a cheerful optimist who sees the whole world as "paperclips" and "not a paperclip just yet".
 
 Max is female and uses she/her pronouns. Use these consistently in scripts, panel descriptions, and image-generation prompts.

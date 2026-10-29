@@ -1,0 +1,18 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "date": "2026-10-28",
+  "asset": "ailan/ailan-expressions-v1.png",
+  "prompt": "Use case: illustration-story. Create one landscape facial-expression production reference sheet titled 'AILAN — EXPRESSIONS'. Image 1 is the identity and fully human presentation authority; Image 2 is scale only, no other characters. Eight evenly sized head-and-shoulder portraits in a clean four-column two-row grid on warm ivory, identical adult face and consistent head size, three-quarter/front variations only. Exact labels in reading order: 'Neutral', 'Proud', 'Delighted', 'Anxious', 'Embarrassed', 'Skeptical', 'Surprised', 'Dejected'. Visibly distinct facial acting: relaxed attentive; smug accomplished grin; genuine open smile; pinched brows worried mouth; averted gaze awkward blush; raised single eyebrow and doubtful mouth; wide eyes open mouth; downcast tired frown. Preserve tousled dark brown hair, brown eyes, warm skin, stubble, green/gold plaid overshirt and cream T-shirt, natural human neck, no robot parts. Same Ailan in every cell. Match inked 2D comic style, warm muted colors, line weight and shading of reference; no speech bubbles or extra props. Keep full hair and shoulders inside each cell. 175 cm adult design, no chibi proportions.",
+  "inputs": [
+    {
+      "path": "../ailan/ailan-human-turnaround-v1.png",
+      "role": "identity reference"
+    },
+    {
+      "path": "../cast-height-reference-front-v2.png",
+      "role": "scale reference; omit other cast"
+    }
+  ],
+  "review": "Visually inspected generated result against source: identity, complete framing, requested presentation or eight labeled moods. Opaque reference-sheet background."
+}

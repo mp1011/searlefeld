@@ -1,0 +1,18 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "date": "2026-10-28",
+  "asset": "roko/roko-expressions-v1.png",
+  "prompt": "Use case: illustration-story. Create landscape facial-expression production sheet titled 'ROKO — EXPRESSIONS', eight head-and-shoulder portraits in four columns by two rows, warm ivory. Image 1 controls identity, materials, every in-frame detail; Image 2 is scale only, no other characters. Exact labels reading order: 'Neutral', 'Anxious', 'Overwhelmed', 'Skeptical', 'Annoyed', 'Surprised', 'Relieved', 'Exhausted'. Strong readable distinctions through amber eyes, eyelids, brows and small angular mouth: habitual weary gaze; pinched worried brows; wide stressed eyes and strained mouth; asymmetric raised brow; narrowed eyes tense mouth; startled wide eyes parted mouth; soft released brows faint smile; drooping lids and downturned mouth. Preserve charcoal dragon-like robot skull, two tall black horns, two shorter rust side horns, cheek fins, long angular face, amber eyes, exposed dark neck struts and rust-trimmed dark shoulder armor, surface scratches. Never add human flesh, hair, tears or organic dragon scales. Keep mechanical face and fixed horn geometry across all portraits. No villain snarls or flame effects. Adult 191 cm including horns, burnt-out office-worker demeanor. Match polished inked 2D comic style, muted warm colors and shading. Every horn tip and cheek fin fully inside its cell, consistent head size, labels legible, no props or bubbles.",
+  "inputs": [
+    {
+      "path": "../roko/roko-turnaround-v1.png",
+      "role": "identity reference"
+    },
+    {
+      "path": "../cast-height-reference-front-v2.png",
+      "role": "scale reference; omit other cast"
+    }
+  ],
+  "review": "Visually inspected generated result against source: identity, complete framing, requested presentation or eight labeled moods. Opaque reference-sheet background."
+}
