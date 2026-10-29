@@ -1,0 +1,12 @@
+{
+  "aspect_ratio": "6:1",
+  "output": "banner-apartment-sitcom-signal-v2-cropped-6x1.png",
+  "source": "banner-apartment-sitcom-signal-v2.png",
+  "operation": "Lossless rectangular crop; no regeneration or retouching",
+  "rectangle": {
+    "y": 140,
+    "height": 360,
+    "x": 6,
+    "width": 2160
+  }
+}

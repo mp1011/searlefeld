@@ -1,6 +1,8 @@
 import { execSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { cast } from '../src/lib/cast';
+import { banners, wideBanners } from '../src/lib/banner';
+import { runInNewContext } from 'node:vm';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { describe, expect, it } from 'vitest';
 
@@ -11,6 +13,47 @@ describe('build output', () => {
     const img = html.match(/<img[^>]*>/g)?.find((t) => t.includes('/comics/0002-human.png'));
     expect(img).toBeDefined();
     expect(img).toContain('alt="Ailan shows off his new human appearance to Max and Roko."');
+  });
+
+  it('renders a linked, accessible 6:1 banner on every page and ships every rotation image', () => {
+    for (const file of ['index.html', '404.html', 'about/index.html', 'archive/index.html', 'comic/1/index.html', 'comic/2/index.html']) {
+      const html = readFileSync(`dist/${file}`, 'utf8');
+      expect(html).toMatch(/<a\b[^>]*href="\/"[^>]*aria-label="Searlefeld home"/);
+      const image = html.match(/<img\b[^>]*id="site-banner-image"[^>]*>/)?.[0];
+      expect(image).toContain(`src="${banners[0]}"`);
+      expect(image).toContain('width="1620" height="270"');
+      expect(image).toMatch(/alt="[^"]+"/);
+      expect(html).toMatch(/<source\b[^>]*media="\(width &gt; 60rem\)"[^>]*srcset="\/banners\/apartment-wide.webp"/);
+    }
+    for (const banner of banners) expect(existsSync(`dist${banner}`)).toBe(true);
+    for (const banner of wideBanners) expect(existsSync(`dist${banner}`)).toBe(true);
+  });
+
+  it('executes the shipped banner script across reloads, including denied storage access', () => {
+    const html = readFileSync('dist/index.html', 'utf8');
+    const scripts = [...html.matchAll(/<script type="module">([\s\S]*?)<\/script>/g)].map((match) => match[1]);
+    let saved: string | null = null;
+    const storage = { getItem: () => saved, setItem: (_key: string, value: string) => { saved = value; } };
+    const sources: string[] = [];
+    const wideSources: string[] = [];
+    for (let load = 0; load < 4; load++) {
+      const image = { src: banners[0] as string };
+      const source = { srcset: wideBanners[0] };
+      for (const script of scripts) runInNewContext(script, {
+        document: { querySelector: (selector: string) => selector === '#site-banner-image' ? image : selector === '#site-banner-wide' ? source : null },
+        window: { sessionStorage: storage },
+      });
+      sources.push(image.src);
+      wideSources.push(source.srcset);
+    }
+    expect(sources).toEqual([...banners, banners[0]]);
+    expect(wideSources).toEqual([...wideBanners, wideBanners[0]]);
+    const image = { src: banners[0] as string };
+    for (const script of scripts) runInNewContext(script, {
+      document: { querySelector: (selector: string) => selector === '#site-banner-image' ? image : null },
+      window: { get sessionStorage() { throw new Error('denied'); } },
+    });
+    expect(image.src).toBe(banners[0]);
   });
 
   it('emits a permalink per comic with correct nav links', () => {

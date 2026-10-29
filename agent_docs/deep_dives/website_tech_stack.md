@@ -169,6 +169,38 @@ jobs:
 
 ## Implementation Roadmap (Subtasks)
 
+### Rotating website banner
+
+`Header.astro` includes `SiteBanner.astro` above the existing site navigation on
+every page. Tight 6:1 crops from `comic_notes/reference_images/banner/` are
+served as 1620 × 270 WebP assets in `website/public/banners/`. Preserve the
+standalone logo design and Chinese Room's canonical Listening face when replacing
+these assets. The image scales intact up to the shared 60rem width and sits
+flush at the upper-left viewport edge rather than centered. Full source images
+and earlier 4:1 crops remain available; the ensemble v3 source lowers its logo
+to keep the faces visible within the shallower crop.
+
+`src/lib/banner.ts` rotates apartment, ensemble and lineup on successive page
+loads using the per-tab `searlefeld-banner-index` sessionStorage key. Storage
+failure and JavaScript-disabled browsers keep the first image. Explicit image
+dimensions reserve space. Unit tests cover rotation and fallbacks; build tests
+execute the shipped script and verify accessible image markup and static assets.
+
+Above 60rem, a responsive `picture` selects matching 2430 × 270 lossless WebP
+variants. The original occupies the first 1620 columns unchanged; the added
+810 columns use generated chair/sofa continuations from
+`comic_notes/reference_images/banner/continuations/` (including adjacent prompt
+records). The continuation is resized uniformly, its boundary colors matched
+over a short join, and gradually blurred and faded farther to the right.
+Furniture contours continue across the join; no object or edge column is stretched. Regenerate with
+`node scripts/extend-banners.mjs` from the repository root. Pixel tests compare
+the decoded original region byte-for-byte and check the alpha transition.
+The wide image renders at 90rem × 10rem, clipped by the viewport, so the
+original composition stays at 60rem × 10rem. The banner's warm `#e9dfcc`
+background fills the rest of any wider viewport. Below or at 60rem, browsers
+select the original images and retain the existing 6:1 scaling. Rotation
+updates both sources together, including after resizing the viewport.
+
 ### Archive implementation
 
 `website/src/pages/archive.astro` uses `sortedComics` to render an ordered

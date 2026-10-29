@@ -1,0 +1,31 @@
+---
+import { banners, wideBanners } from '../lib/banner';
+---
+<a class="site-banner" href="/" aria-label="Searlefeld home">
+  <picture>
+  <source id="site-banner-wide" media="(width > 60rem)" srcset={wideBanners[0]} width="2430" height="270" />
+  <img id="site-banner-image" src={banners[0]} width="1620" height="270"
+    alt="Searlefeld — Roko, Max, Ailan and Chinese Room at home in their New York loft."
+    loading="eager" fetchpriority="high" />
+  </picture>
+</a>
+<script>
+  import { rotateBanner } from '../lib/banner';
+  const image = document.querySelector<HTMLImageElement>('#site-banner-image');
+  const source = document.querySelector<HTMLSourceElement>('#site-banner-wide');
+  if (image) {
+    try {
+      rotateBanner(image, window.sessionStorage, source ?? undefined);
+    } catch {
+      // Accessing sessionStorage itself can fail in restricted browsers.
+    }
+  }
+</script>
+<style>
+  .site-banner { display: block; width: 100%; margin: 0; overflow: hidden; background: #e9dfcc; }
+  .site-banner picture { display: block; }
+  .site-banner img { display: block; width: 100%; height: auto; aspect-ratio: 6 / 1; }
+  @media (width > 60rem) {
+    .site-banner img { width: 90rem; height: 10rem; aspect-ratio: 9 / 1; max-width: none; }
+  }
+</style>

@@ -1,0 +1,6 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Edit supplied banner for shallower website crop. Keep original full canvas dimensions and ALL existing artwork, characters, correct dot-matrix Listening face, furnishings and logo design. Change ONLY logo position and size: remove existing logo from upper left restoring windows there, then place SAME exact logo lower and smaller at x20..570, y230..425 on the 2055x765 canvas. Preserve cream italic Searlefeld lettering, gold orange oval, three curved signal trails ending in black outlined cream dots at RIGHT END. Do not change logo design. Logo must sit entirely LEFT of Roko's face and clear all faces. This enables subsequent rectangular crop y180..520, so all four faces and logo coexist in narrow horizontal band. Preserve faces, expressions, room, lighting, framing and all other objects identically. No new text.",
+  "source": "banner-ensemble-sitcom-signal-v2.png",
+  "purpose": "Lower logo placement for shallow banner crop"
+}

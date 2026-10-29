@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "input": "tmp/banner-outpaint/apartment-target.png",
+  "inputRole": "rightmost 135 pixels of original banner, with 810px transparent canvas to right; excludes all cast",
+  "source": "website/public/banners/apartment.webp",
+  "prompt": "Use case: precise-object-edit. Edit target: the attached 945x270 panoramic image. The first 135 pixels on the LEFT contain an existing comic room fragment; the remaining 810 pixels are empty transparent canvas to outpaint. Fill the empty area by naturally continuing the SAME wall and the cut-off cream upholstered armchair and orange pillow to the right, at exactly the same scale, height, perspective, warm afternoon lighting and inked 2D comic style as the existing left strip. The framing and camera MUST NOT move. Keep the entire existing left strip pixel-aligned and unchanged: preserve framed 家 calligraphy, frame molding, wall texture, window shadows, upholstery seams and pillow contours. The objects need to be DRAWN as a natural continuation, never stretched, smeared, mirrored or repeated. Do not duplicate the picture frame or add characters, lettering, decorations or new furniture. Near the join keep the chair/sofa outlines clear and seamlessly continuous; farther right gradually soften the drawing into broad blurred warm wall and upholstery colors, then fade smoothly to TRUE TRANSPARENCY by the far-right edge. No hard vertical seam or rectangular blur boundary. Preserve 945x270 panoramic canvas and the 135px left reference strip position."
+}

@@ -1,0 +1,12 @@
+{
+  "aspect_ratio": "6:1",
+  "output": "banner-ensemble-sitcom-signal-v2-cropped-6x1.png",
+  "source": "banner-ensemble-sitcom-signal-v3.png",
+  "operation": "Lossless rectangular crop; no regeneration or retouching",
+  "rectangle": {
+    "y": 160,
+    "height": 340,
+    "x": 7,
+    "width": 2040
+  }
+}
