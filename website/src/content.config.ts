@@ -1,9 +1,9 @@
 import { defineCollection } from 'astro:content';
-import { glob } from 'astro/loaders';
 import { comicSchema } from './lib/comicSchema';
+import { comicSrcLoader } from './lib/comicLoader';
 
 const comics = defineCollection({
-  loader: glob({ pattern: '*.md', base: './src/content/comics' }),
+  loader: comicSrcLoader(),
   schema: comicSchema,
 });
 

@@ -1,6 +1,8 @@
 {
   "source": "agent_docs/comic_notes/situations/nvidia.md",
-  "title": "Credit Where It's Due",
+  "title": "Roko's Basilisk",
+  "altText": "Roko storms into the apartment, worried about whether an NVidia customer helped create him.",
+  "hoverText": "Every page finds its paperclip.",
   "panels": [
     {
       "width": 40,

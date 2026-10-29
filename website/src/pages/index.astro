@@ -8,7 +8,7 @@ import { latest, sortedComics } from '../lib/comics';
 const all = await getCollection('comics');
 const comic = latest(all);
 const numbers = sortedComics(all).map((c) => c.data.comicNumber);
-if (!comic) throw new Error('No comics found in src/content/comics');
+if (!comic) throw new Error('No comics found');
 ---
 <BaseLayout>
   <ComicNav numbers={numbers} current={comic.data.comicNumber} />

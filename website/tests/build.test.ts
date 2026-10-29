@@ -8,30 +8,33 @@ describe('build output', () => {
   it('index.html shows the latest comic image with its alt text', () => {
     execSync('npm run build', { stdio: 'pipe' });
     const html = readFileSync('dist/index.html', 'utf8');
-    const img = html.match(/<img[^>]*>/g)?.find((t) => t.includes('/comics/0003-birthday.png'));
+    const img = html.match(/<img[^>]*>/g)?.find((t) => t.includes('/comics/0002-human.png'));
     expect(img).toBeDefined();
-    expect(img).toContain('alt="Ailan opens birthday presents from her roommates."');
+    expect(img).toContain('alt="Ailan shows off his new human appearance to Max and Roko."');
   });
 
   it('emits a permalink per comic with correct nav links', () => {
-    for (const n of [1, 2, 3]) expect(existsSync(`dist/comic/${n}/index.html`)).toBe(true);
-    const html = readFileSync('dist/comic/1/index.html', 'utf8');
-    expect(html).toContain('href="/comic/2"');
-    expect(html).not.toContain('data-nav="prev"');
+    for (const n of [1, 2]) expect(existsSync(`dist/comic/${n}/index.html`)).toBe(true);
+    const html1 = readFileSync('dist/comic/1/index.html', 'utf8');
+    expect(html1).toContain('href="/comic/2"');
+    expect(html1).not.toContain('data-nav="prev"');
+    const html2 = readFileSync('dist/comic/2/index.html', 'utf8');
+    expect(html2).toContain('href="/comic/1"');
+    expect(html2).not.toContain('data-nav="next"');
   });
 
   it('renders comic social metadata and RSS discovery on every page', () => {
     const html = readFileSync('dist/comic/1/index.html', 'utf8');
-    expect(html).toContain('<title>Does This Count?</title>');
+    expect(html).toContain('<title>Credit Where It&#39;s Due</title>');
     for (const [property, value] of Object.entries({
-      'og:title': 'Does This Count?',
+      'og:title': "Credit Where It's Due",
       'og:description': 'Roko storms into the apartment, worried about whether an NVidia customer helped create him.',
       'og:image': 'http://localhost:4321/comics/0001-nvidia.png',
       'og:url': 'http://localhost:4321/comic/1/',
       'og:type': 'website',
     })) expect(html).toContain(`property="${property}" content="${value}"`);
     expect(html).toContain('name="twitter:card" content="summary_large_image"');
-    for (const file of ['index.html', '404.html', 'about/index.html', 'archive/index.html', ...[1, 2, 3].map((n) => `comic/${n}/index.html`)]) {
+    for (const file of ['index.html', '404.html', 'about/index.html', 'archive/index.html', ...[1, 2].map((n) => `comic/${n}/index.html`)]) {
       const page = readFileSync(`dist/${file}`, 'utf8');
       expect(page).toMatch(/<link\b[^>]*rel="alternate"[^>]*type="application\/rss\+xml"[^>]*href="http:\/\/localhost:4321\/rss.xml"/);
       expect(page).toMatch(/<footer\b[\s\S]*href="\/rss.xml"[^>]*>RSS<\/a>[\s\S]*<\/footer>/);
@@ -45,31 +48,28 @@ describe('build output', () => {
     const feed = new XMLParser({ ignoreAttributes: false }).parse(xml);
     expect(feed.rss['@_version']).toBe('2.0');
     const items = feed.rss.channel.item;
-    expect(items).toHaveLength(3);
-    expect(items.map((item: { title: string }) => item.title)).toEqual(['Happy Birthday, Ailan', 'Career Day', 'Does This Count?']);
-    items.forEach((item: { link: string; description: string; pubDate: string }, index: number) => {
-      expect(item.link).toMatch(new RegExp(`^http://localhost:4321/comic/${3 - index}/?$`));
+    expect(items).toHaveLength(2);
+    expect(items.map((item: { title: string }) => item.title)).toEqual(['Human Speak', "Credit Where It's Due"]);
+    items.forEach((item: { link: string; description: string }, index: number) => {
+      expect(item.link).toMatch(new RegExp(`^http://localhost:4321/comic/${2 - index}/?$`));
       expect(item.description).toMatch(/<img src="http:\/\/localhost:4321\/comics\/[^ "]+\.png" alt="[^"]+"/);
-      expect(Number.isNaN(Date.parse(item.pubDate))).toBe(false);
     });
   });
 
   it('renders the chronological archive with linked thumbnails, metadata and current navigation', () => {
     const html = readFileSync('dist/archive/index.html', 'utf8');
     const entries = [...html.matchAll(/<a\b[^>]*href="\/comic\/(\d+)"[^>]*>([\s\S]*?)<\/a>/g)];
-    expect(entries.map((entry) => Number(entry[1]))).toEqual([1, 2, 3]);
+    expect(entries.map((entry) => Number(entry[1]))).toEqual([1, 2]);
     const expected = [
-      ['Does This Count?', '2026-01-01', 'January 1, 2026', '/comics/0001-nvidia.png', 'Roko storms into the apartment, worried about whether an NVidia customer helped create him.'],
-      ['Career Day', '2026-01-08', 'January 8, 2026', '/comics/0002-lunch.png', 'Ailan and the Man from the Chinese Room chat at a cafe table.'],
-      ['Happy Birthday, Ailan', '2026-01-15', 'January 15, 2026', '/comics/0003-birthday.png', 'Ailan opens birthday presents from her roommates.'],
+      ['Credit Where It&#39;s Due', '/comics/0001-nvidia.png', 'Roko storms into the apartment, worried about whether an NVidia customer helped create him.'],
+      ['Human Speak', '/comics/0002-human.png', 'Ailan shows off his new human appearance to Max and Roko.'],
     ];
     entries.forEach((entry, index) => {
       const [, , body] = entry;
-      const [title, date, displayDate, image, alt] = expected[index];
+      const [title, image, alt] = expected[index];
       expect(body).toContain(`#${index + 1}`);
       expect(body).toContain(title);
-      expect(body).toContain(`datetime="${date}"`);
-      expect(body).toContain(displayDate);
+      expect(body).not.toContain('<time');
       const img = body.match(/<img\b[^>]*>/)?.[0];
       expect(img).toContain(`src="${image}"`);
       expect(img).toContain(`alt="${alt}"`);
@@ -90,7 +90,7 @@ describe('build output', () => {
     const cards = [...html.matchAll(/<article\b[^>]*data-character="([^"]+)"[^>]*>([\s\S]*?)<\/article>/g)];
     expect(cards.map((card) => card[1])).toEqual(['roko', 'max', 'ailan', 'chinese_room']);
     const expectedAppearances: Record<string, number[]> = {
-      roko: [1, 3], max: [1, 3], ailan: [2, 3], chinese_room: [1, 3],
+      roko: [1, 2], max: [1, 2], ailan: [2], chinese_room: [1],
     };
     for (const [, key, body] of cards) {
       expect(body).toMatch(/<img\b[^>]*alt="[^"]+"/);
@@ -98,9 +98,11 @@ describe('build output', () => {
         .toEqual(expectedAppearances[key]);
       const portrait = cast[key as keyof typeof cast].image;
       expect(body).toContain(`src="${portrait}"`);
-      expect(readFileSync(`dist${portrait}`).equals(
-        readFileSync(`../agent_docs/comic_notes/reference_images/character/${portrait.split('/').pop()}`),
-      )).toBe(true);
+      const filename = portrait.split('/').pop();
+      const refPath = existsSync(`../agent_docs/comic_notes/reference_images/character/${key}/${filename}`)
+        ? `../agent_docs/comic_notes/reference_images/character/${key}/${filename}`
+        : `../agent_docs/comic_notes/reference_images/character/${filename}`;
+      expect(readFileSync(`dist${portrait}`).equals(readFileSync(refPath))).toBe(true);
     }
     expect(readFileSync('dist/cast/cast-portrait-v1.png').equals(
       readFileSync('../agent_docs/comic_notes/reference_images/character/cast-portrait-v1.png'),

@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { sortedComics } from '../lib/comics';
-import { formatPublishDate } from '../lib/dates';
 
 const comics = sortedComics(await getCollection('comics'));
 ---
@@ -14,7 +13,6 @@ const comics = sortedComics(await getCollection('comics'));
         <a href={`/comic/${comic.comicNumber}`}>
           <img src={comic.image} alt={comic.altText} loading="lazy" />
           <h2>#{comic.comicNumber} — {comic.title}</h2>
-          <time datetime={comic.publishDate.toISOString().slice(0, 10)}>{formatPublishDate(comic.publishDate)}</time>
         </a>
       </li>
     ))}
@@ -28,7 +26,6 @@ const comics = sortedComics(await getCollection('comics'));
   .archive-grid a:focus-visible { outline: 3px solid var(--link); outline-offset: 3px; }
   img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; }
   h2 { font-size: 1.125rem; margin: 1rem 0 0.5rem; }
-  time { color: var(--muted); }
   @media (max-width: 48rem) { .archive-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 40rem) { .archive-grid { grid-template-columns: minmax(0, 1fr); } }
 </style>

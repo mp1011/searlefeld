@@ -1,6 +1,8 @@
 {
   "source": "agent_docs/comic_notes/situations/human.md",
-  "title": "Human Speak",
+  "title": "More Human than Human",
+  "altText": "Ailan shows off his new human appearance to Max and Roko.",
+  "hoverText": "I've been practicing my human speak!",
   "panels": [
     {
       "width": 50,
