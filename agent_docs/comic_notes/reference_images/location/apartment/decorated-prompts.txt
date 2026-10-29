@@ -1,7 +1,0 @@
-Created with built-in image_gen using the corresponding undecorated apartment angle as edit target and the decoration PNGs as supporting references.
-
-Shared prompt: Preserve exact camera angle, framing, furniture positions, architecture, warm sunlight and inked comic style. Add Max's paperclip bonsai in its sage pot as the coffee table centerpiece, approximately 45 cm tall. Hang Vlad's framed portrait to the left of the entrance door and Ailan's unfilled collage to the right above the bench. Preserve the collage placeholders and central sentiment. Restore the blank pale blue landscape monitor on the solid monitor wall and hang the framed 家 calligraphy beside it toward the entrance end. Integrate perspective and light. Add no other decorations. Keep objects outside camera view out of view.
-
-Angle 1: Entrance wall ahead, monitor wall on image left. All four decorations visible.
-Angle 2: Windows left, monitor wall right. Calligraphy to the right of monitor. Door-wall decorations outside frame.
-Angle 3: Workshop and windows ahead. Only the bonsai is visible; all wall decorations are behind camera. Preserve bare workshop and empty shelves.

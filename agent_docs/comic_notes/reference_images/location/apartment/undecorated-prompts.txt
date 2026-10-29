@@ -1,5 +1,0 @@
-Created with built-in image_gen, using each corresponding original as its edit target.
-
-Prompt: Preserve the original camera angle, architecture, furniture positions, warm sunlight, and inked comic illustration style. Retain only furniture, integral upholstery, and architectural fixtures including ceiling lights. Remove all plants, pots, books, ornaments, tools, machines, containers, loose boxes, lamps, rugs, blankets, decorative pillows, coats, bags, shoes, wall art, coat hooks, and monitor. Leave walls bare, shelves and bookcases empty, tabletops clear, and floors bare. Add nothing.
-
-Entrance follow-up: Remove only the two loose wooden boxes on the lower shelf beneath the coffee table. Make that shelf entirely empty. Preserve all other furniture, composition, lighting, illustration style, and architecture.
