@@ -1,0 +1,8 @@
+{
+  "tool": "built-in image_gen",
+  "source_reference": "banner-apartment-sitcom-signal-v1.png",
+  "input_role": "Original logo design authority",
+  "prompt": "Use case: background-extraction. Create a standalone transparent-background logo reference by isolating ONLY the existing Searlefeld logo from the LEFT side of the supplied original banner. This is faithful extraction/restoration, not redesign. Preserve the exact original visual design: cream warm ivory bold italic custom serif \"Searlefeld\" lettering, distinctive oversized sweeping capital S, exact lowercase letterforms, heavy near-black outline and down-right black shadow, elongated golden yellow oval with orange border rising gently to the right, and the THREE orange curved parallel signal trails extending from the oval's right edge and terminating in THREE ivory circular dots outlined black, vertically staggered along the right side. All dots and trails on RIGHT END, never above the oval. Match original layout, lettering proportions, oval tilt, colors, spacing, shadow, and organic inked contours closely. Do not substitute a font or alter the logo composition. Remove all apartment scenery, wall, plants, cast, furniture, and lighting cast by the room. Only the logo and its original graphic shadow remain on genuinely transparent alpha. Center entire logo on a comfortably padded wide canvas, no clipping. No additional words, no reference labels, no checkerboard painted into image. Reference image is sole authority, preserve its design rather than reinterpret it.",
+  "transparent_background": true,
+  "status": "Standalone logo reference for user review"
+}

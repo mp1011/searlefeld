@@ -1,5 +1,9 @@
+---
+status: Not Started
+---
+
 # GOAL
-Upon push to git from the main branch, deploy to the development website.
+Upon push to git from the main branch, deploy to the development website, which will be hosted on Cloudflare.
 
 This will be done via github actions.
 

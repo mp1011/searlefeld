@@ -1,0 +1,12 @@
+{
+  "source": "banner-ensemble-sitcom-signal-v2.png",
+  "rectangle": {
+    "height": 513,
+    "y": 0,
+    "width": 2052,
+    "x": 1
+  },
+  "operation": "Lossless rectangular crop; no regeneration, resizing, or retouching",
+  "aspect_ratio": "4:1",
+  "output": "banner-ensemble-sitcom-signal-v2-cropped-4x1.png"
+}

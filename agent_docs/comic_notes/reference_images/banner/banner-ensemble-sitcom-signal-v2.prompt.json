@@ -1,0 +1,24 @@
+{
+  "status": "Draft awaiting user approval; website integration intentionally deferred",
+  "tool": "built-in image_gen",
+  "prompt": "Use case: illustration-story. Create one finished ultra-wide website banner, approximately 4:1 landscape, composed deliberately for a shallow header. Polished inked 2D Searlefeld comic art, warm muted colors, crisp faces readable at small sizes. Input roles: 1 paired Roko turnaround TOP and expressions BOTTOM; 2 paired Max turnaround TOP and expressions BOTTOM; 3 paired Ailan HUMAN turnaround TOP and expressions BOTTOM; 4 Chinese Room expression sheet TOP and cast scale reference BOTTOM (scale ONLY, ignore exposed Ailan machinery); 5 CURRENT apartment environment and geography. Exactly three physical roommates and one wall monitor. Roko anxious charcoal dragon robot with orange eyes and horns; Max cheerful ivory/orange robot with colored paperclip earrings and necklace; Ailan brown curly hair, stubble, green plaid overshirt, cream T-shirt, jeans, natural human skin, NO exposed machinery. Standing underlying heights Ailan175 Max183 Roko191cm including horns, modest differences. Chinese Room only wall monitor, black printer-dot face on cream pale-green striped tractor-feed paper with edge holes, aged dark housing, 90x67.5cm centered160cm above floor; replace the blue placeholder face at established wall location, never a fourth body. Apartment: three-bay industrial windows and New York skyline on left, sage sectional cream/rust cushions and cream throw, wooden coffee table with small paperclip bonsai sage pot and open manual, mechanical parts, neutral rug, cream wood-frame armchair right, workshop left with pegboard tools, storage bins, task lamp, robot arm, fabrication machine; dark ceiling beams duct and track lights. Preserve these and all other in-frame details, placement, warm daylight, no extra door or window on solid monitor wall, framed 家 to monitor right. Naturally occlude details behind occupants; do not move objects into frame. Exact title text \"Searlefeld\", retro cream italic lettering with black shadow on flattened golden-orange oval with three small signal dots, large and impeccably readable. No other added captions, speech bubbles, watermarks, reference-sheet labels, rulers, collage panels. Entire title and all faces/horns/frame inside image with generous crop safety. An ensemble sitcom portrait banner with title in upper-left open area, cast faces distributed in a strong horizontal rhythm, seated naturally on existing sage sofa. Roko skeptical at left, Max delighted center, Ailan proudly smiling right of Max, Chinese Room amused on its established right wall. Slightly closer framing than establishing view while retaining room continuity. Foreground coffee-table paperclip bonsai visible low, no obscuring faces.",
+  "source_references": [
+    "C:/Users/mwpas/source/repos/mp1011/searlefeld/agent_docs/comic_notes/reference_images/character/roko/roko-turnaround-v1.png",
+    "C:/Users/mwpas/source/repos/mp1011/searlefeld/agent_docs/comic_notes/reference_images/character/roko/roko-expressions-v1.png",
+    "C:/Users/mwpas/source/repos/mp1011/searlefeld/agent_docs/comic_notes/reference_images/character/max/max-turnaround-v1.png",
+    "C:/Users/mwpas/source/repos/mp1011/searlefeld/agent_docs/comic_notes/reference_images/character/max/max-expressions-v1.png",
+    "C:/Users/mwpas/source/repos/mp1011/searlefeld/agent_docs/comic_notes/reference_images/character/ailan/ailan-human-turnaround-v1.png",
+    "C:/Users/mwpas/source/repos/mp1011/searlefeld/agent_docs/comic_notes/reference_images/character/ailan/ailan-expressions-v1.png",
+    "C:/Users/mwpas/source/repos/mp1011/searlefeld/agent_docs/comic_notes/reference_images/character/chinese_room/chinese-room-dot-matrix-expressions-v2.png",
+    "C:/Users/mwpas/source/repos/mp1011/searlefeld/agent_docs/comic_notes/reference_images/character/cast-height-reference-front-v2.png",
+    "C:/Users/mwpas/source/repos/mp1011/searlefeld/agent_docs/comic_notes/reference_images/location/apartment/monitor_wall.png"
+  ],
+  "packed_inputs": [
+    "C:/Users/mwpas/source/repos/mp1011/searlefeld/tmp/banner-generation/reference-0.png",
+    "C:/Users/mwpas/source/repos/mp1011/searlefeld/tmp/banner-generation/reference-1.png",
+    "C:/Users/mwpas/source/repos/mp1011/searlefeld/tmp/banner-generation/reference-2.png",
+    "C:/Users/mwpas/source/repos/mp1011/searlefeld/tmp/banner-generation/reference-3.png",
+    "C:/Users/mwpas/source/repos/mp1011/searlefeld/agent_docs/comic_notes/reference_images/location/apartment/monitor_wall.png"
+  ],
+  "notes": "Paired reference sheets assembled without changes to source images. Generated aspect ratios vary from requested 4:1; review compositions before integration."
+}

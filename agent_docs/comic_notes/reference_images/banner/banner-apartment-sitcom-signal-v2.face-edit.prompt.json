@@ -1,0 +1,8 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Localized image edit. Image 1 is banner edit target, image 2 Chinese Room canonical expression sheet. Change ONLY the black dot-matrix facial marks inside the wall monitor. Use EXACTLY the \"Listening\" face, TOP LEFT expression in image2: two arched eyebrows at top, below them ONE pair of clearly OPEN, SOLID VERTICAL OVAL eyes, and one small curved smiling mouth. Do NOT use chevron/caret closed eyes, extra eyelids, duplicate eye rows or a second pair of eyebrows. The existing banner incorrectly combines eyebrows and closed eyes; replace those marks with reference top-left Listening face. Preserve printer-dot texture, cream/pale-green horizontal striped tractor feed paper, side sprocket holes, screen perspective, monitor casing and location. Preserve ALL artwork outside face marks: corrected Searlefeld logo and its three right-side signal trails and ivory dots, cast, clothing, poses, decor, furniture, windows, lighting, framing and exact image dimensions. Output single complete opaque banner; no other edits.",
+  "source_reference": "../character/chinese_room/chinese-room-dot-matrix-expressions-v2.png",
+  "selected_expression": "Listening (top left)",
+  "output": "banner-apartment-sitcom-signal-v2.png",
+  "derived_crop": "banner-apartment-sitcom-signal-v2-cropped-4x1.png"
+}

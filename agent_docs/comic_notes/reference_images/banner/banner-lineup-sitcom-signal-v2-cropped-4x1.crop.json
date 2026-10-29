@@ -1,0 +1,12 @@
+{
+  "source": "banner-lineup-sitcom-signal-v2.png",
+  "rectangle": {
+    "height": 543,
+    "y": 8,
+    "width": 2172,
+    "x": 0
+  },
+  "operation": "Lossless rectangular crop; no regeneration, resizing, or retouching",
+  "aspect_ratio": "4:1",
+  "output": "banner-lineup-sitcom-signal-v2-cropped-4x1.png"
+}

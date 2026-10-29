@@ -1,0 +1,12 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Edit image 1, the banner. Image 2 is the exact approved standalone Searlefeld logo reference. Replace ONLY the erroneous logo graphic in image 1 with the design from image 2. Preserve the reference logo's precise letterforms, cream lettering, black outline and shadow, gold/orange elongated oval, and THREE curved parallel orange signal trails terminating in THREE black-rimmed cream circular dots on the RIGHT END, vertically staggered. Never put dots above the oval. Fit the corrected logo in the same left-side region occupied by the old logo; choose proportionate size that clears characters and includes every part of the logo. Remove the entire old logo including stray dots above it, restoring the local apartment background where needed. Do not redesign the replacement logo. Preserve ALL pixels outside the local logo replacement region as closely as possible: same character faces, expressions, poses, anatomy, clothes, furniture, room geometry, window mullions, monitor face, 家 picture, lighting, crop, palette, details, dimensions and aspect ratio. No extra words or objects. Output the single complete edited banner, opaque. This is localized logo correction, NOT a new illustration.",
+  "inputs": [
+    "banner-lineup-sitcom-signal-v2.png (prior version)",
+    "../searlefeld-logo-sitcom-signal-v1.png"
+  ],
+  "output": "banner-lineup-sitcom-signal-v2.png",
+  "derived_crop": "banner-lineup-sitcom-signal-v2-cropped-4x1.png",
+  "original_design_authority": "banner-apartment-sitcom-signal-v1.png",
+  "backup_directory": "tmp/banner-generation/before-logo-correction"
+}
