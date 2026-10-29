@@ -8,3 +8,4 @@ dist/
 .astro/
 
 tmp/
+output/
